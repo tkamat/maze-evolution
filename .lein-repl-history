@@ -1,0 +1,8 @@
+(use 'figwheel-siderepl-api)
+(start-figwheel)
+(+ 2 3)
+(use 'figwheel-sidecar.repl-api)
+exit
+(use 'figwheel-sidecar.repl-api)
+(use 'figwheel-sidecar.repl-api)cd /home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/
+exit
