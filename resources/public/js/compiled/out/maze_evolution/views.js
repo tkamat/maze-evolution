@@ -3,11 +3,59 @@ goog.provide('maze_evolution.views');
 goog.require('cljs.core');
 goog.require('reagent.core');
 goog.require('re_frame.core');
-maze_evolution.views.hello_world = (function maze_evolution$views$hello_world(){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1","h1",-1896887462),"Hello World!"], null);
+goog.require('maze_evolution.subs');
+maze_evolution.views.title = (function maze_evolution$views$title(){
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1","h1",-1896887462),"Maze Evolution"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h2","h2",-372662728),"created by Tushaar Kamat"], null)], null);
+});
+maze_evolution.views.create_rectangles = (function maze_evolution$views$create_rectangles(maze){
+return cljs.core.apply.call(null,cljs.core.concat,(function (){var row = (0);
+var rectangles = cljs.core.PersistentVector.EMPTY;
+while(true){
+if((row < (11))){
+var G__47273 = (row + (1));
+var G__47274 = cljs.core.conj.call(null,rectangles,(function (){var col = (0);
+var rectangles__$1 = cljs.core.PersistentVector.EMPTY;
+while(true){
+if((col < (21))){
+if(cljs.core._EQ_.call(null,(1),cljs.core.nth.call(null,cljs.core.nth.call(null,maze,row),col))){
+var G__47275 = (col + (1));
+var G__47276 = cljs.core.conj.call(null,rectangles__$1,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"rect","rect",-108902628),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"x","x",2099068185),((30) * col),new cljs.core.Keyword(null,"y","y",-1757859776),((30) * row),new cljs.core.Keyword(null,"width","width",-384071477),(30),new cljs.core.Keyword(null,"height","height",1025178622),(30)], null)], null));
+col = G__47275;
+rectangles__$1 = G__47276;
+continue;
+} else {
+var G__47277 = (col + (1));
+var G__47278 = rectangles__$1;
+col = G__47277;
+rectangles__$1 = G__47278;
+continue;
+}
+} else {
+return rectangles__$1;
+}
+break;
+}
+})());
+row = G__47273;
+rectangles = G__47274;
+continue;
+} else {
+return rectangles;
+}
+break;
+}
+})());
+});
+maze_evolution.views.draw_maze = (function maze_evolution$views$draw_maze(){
+var maze = re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"maze-map","maze-map",-1887029450)], null));
+return ((function (maze){
+return (function (){
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"svg","svg",856789142),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"width","width",-384071477),(1000),new cljs.core.Keyword(null,"height","height",1025178622),(1000)], null),cljs.core.conj.call(null,maze_evolution.views.create_rectangles.call(null,cljs.core.deref.call(null,maze)),new cljs.core.Keyword(null,"g","g",1738089905))], null);
+});
+;})(maze))
 });
 maze_evolution.views.main_panel = (function maze_evolution$views$main_panel(){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.hello_world], null)], null);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.title], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.draw_maze], null)], null);
 });
 
-//# sourceMappingURL=views.js.map?rel=1517179565477
+//# sourceMappingURL=views.js.map?rel=1517206105012
