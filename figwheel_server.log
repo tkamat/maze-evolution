@@ -750,3 +750,98 @@ notifying browser that file changed:  resources/public/js/compiled/out/maze_evol
 [0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs"]...[0m
 [32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.556 seconds.[0m
 notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/db.cljs   line:4  column:20  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.db/x[0m
+
+  [36m1[0m  [36m(ns maze-evolution.db)[0m
+  [36m2[0m  [36m[0m
+  [36m3[0m  [36m(def default-db[0m
+  [33m4[0m  [1m  {:maze {:map [[1 x 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1][0m
+  [0m [0m  [33m                   ^--- Use of undeclared Var maze-evolution.db/x[0m
+  [36m5[0m  [36m                [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1][0m
+  [36m6[0m  [36m                [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1][0m
+  [36m7[0m  [36m                [1 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 1][0m
+  [36m8[0m  [36m                ][0m
+  [36m9[0m  [36m          }})[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/db.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.792 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/db.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/db.cljs   line:4  column:20  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.db/x[0m
+
+  [36m1[0m  [36m(ns maze-evolution.db)[0m
+  [36m2[0m  [36m[0m
+  [36m3[0m  [36m(def default-db[0m
+  [33m4[0m  [1m  {:maze {:map [[1 x 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1][0m
+  [0m [0m  [33m                   ^--- Use of undeclared Var maze-evolution.db/x[0m
+  [36m5[0m  [36m                [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1][0m
+  [36m6[0m  [36m                [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1][0m
+  [36m7[0m  [36m                [1 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 1][0m
+  [36m8[0m  [36m                [1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 0 1 1 0][0m
+  [36m9[0m  [36m                ][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/db.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.562 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/db.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/db.cljs   line:4  column:20  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.db/x[0m
+
+  [36m1[0m  [36m(ns maze-evolution.db)[0m
+  [36m2[0m  [36m[0m
+  [36m3[0m  [36m(def default-db[0m
+  [33m4[0m  [1m  {:maze {:map [[1 x 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1][0m
+  [0m [0m  [33m                   ^--- Use of undeclared Var maze-evolution.db/x[0m
+  [36m5[0m  [36m                [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1][0m
+  [36m6[0m  [36m                [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1][0m
+  [36m7[0m  [36m                [1 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 1][0m
+  [36m8[0m  [36m                [1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 0 1 1 1][0m
+  [36m9[0m  [36m                [1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 1][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/db.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.608 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/db.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/db.cljs   line:4  column:20  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.db/x[0m
+
+  [36m1[0m  [36m(ns maze-evolution.db)[0m
+  [36m2[0m  [36m[0m
+  [36m3[0m  [36m(def default-db[0m
+  [33m4[0m  [1m  {:maze {:map [[1 x 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1][0m
+  [0m [0m  [33m                   ^--- Use of undeclared Var maze-evolution.db/x[0m
+  [36m5[0m  [36m                [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1][0m
+  [36m6[0m  [36m                [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1][0m
+  [36m7[0m  [36m                [1 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 1][0m
+  [36m8[0m  [36m                [1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 0 1 1 1][0m
+  [36m9[0m  [36m                [1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 1][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/db.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.545 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/db.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/db.cljs   line:4  column:20  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.db/x[0m
+
+  [36m1[0m  [36m(ns maze-evolution.db)[0m
+  [36m2[0m  [36m[0m
+  [36m3[0m  [36m(def default-db[0m
+  [33m4[0m  [1m  {:maze {:map [[1 x 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1][0m
+  [0m [0m  [33m                   ^--- Use of undeclared Var maze-evolution.db/x[0m
+  [36m5[0m  [36m                [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1][0m
+  [36m6[0m  [36m                [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1][0m
+  [36m7[0m  [36m                [1 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 1][0m
+  [36m8[0m  [36m                [1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 0 1 1 1][0m
+  [36m9[0m  [36m                [1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 1][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/db.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.51 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/db.js

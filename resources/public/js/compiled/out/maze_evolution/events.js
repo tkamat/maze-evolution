@@ -7,4 +7,4 @@ re_frame.core.reg_event_db.call(null,new cljs.core.Keyword("maze-evolution.event
 return maze_evolution.db.default_db;
 }));
 
-//# sourceMappingURL=events.js.map?rel=1517031111374
+//# sourceMappingURL=events.js.map?rel=1517197358063
