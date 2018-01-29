@@ -12,6 +12,6 @@
     (println "dev mode")))
 
 (defn ^:export main []
-  (re-frame/dispatch-sync [::events/initialize-db])
+  (re-frame/dispatch-sync [:initialize-db])
   (reagent/render [#'views/main-panel]
                   (.getElementById js/document "app")))

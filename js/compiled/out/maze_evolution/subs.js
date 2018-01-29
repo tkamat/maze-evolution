@@ -2,8 +2,8 @@
 goog.provide('maze_evolution.subs');
 goog.require('cljs.core');
 goog.require('re_frame.core');
-re_frame.core.reg_sub.call(null,new cljs.core.Keyword("maze-evolution.subs","name","maze-evolution.subs/name",1415919805),(function (db){
-return new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(db);
+re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"maze-map","maze-map",-1887029450),(function (db){
+return cljs.core.get_in.call(null,db,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"maze","maze",1753749814),new cljs.core.Keyword(null,"map","map",1371690461)], null));
 }));
 
-//# sourceMappingURL=subs.js.map?rel=1517031108769
+//# sourceMappingURL=subs.js.map?rel=1517199625192

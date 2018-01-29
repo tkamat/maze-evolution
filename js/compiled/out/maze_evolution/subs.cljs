@@ -2,6 +2,6 @@
   (:require [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub
- ::name
+ :maze-map
  (fn [db]
-   (:name db)))
+   (get-in db [:maze :map])))
