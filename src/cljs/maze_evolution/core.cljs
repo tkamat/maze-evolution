@@ -5,7 +5,6 @@
             [maze-evolution.views :as views]
             [maze-evolution.config :as config]))
 
-
 (defn dev-setup []
   (when config/debug?
     (enable-console-print!)
