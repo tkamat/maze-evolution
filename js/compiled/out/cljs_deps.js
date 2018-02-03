@@ -67,7 +67,6 @@ goog.addDependency("../cljs/core/async/impl/channels.js", ['cljs.core.async.impl
 goog.addDependency("../cljs/core/async/impl/ioc_helpers.js", ['cljs.core.async.impl.ioc_helpers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/timers.js", ['cljs.core.async.impl.timers'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async.js", ['cljs.core.async'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols', 'cljs.core.async.impl.ioc_helpers', 'cljs.core.async.impl.timers']);
-goog.addDependency("../maze_evolution/db.js", ['maze_evolution.db'], ['cljs.core']);
 goog.addDependency("../re_frame/interop.js", ['re_frame.interop'], ['reagent.ratom', 'reagent.core', 'cljs.core', 'goog.async.nextTick']);
 goog.addDependency("../re_frame/loggers.js", ['re_frame.loggers'], ['cljs.core', 'clojure.set']);
 goog.addDependency("../re_frame/interceptor.js", ['re_frame.interceptor'], ['re_frame.interop', 'cljs.core', 'clojure.set', 're_frame.loggers']);
@@ -82,9 +81,11 @@ goog.addDependency("../re_frame/cofx.js", ['re_frame.cofx'], ['re_frame.intercep
 goog.addDependency("../re_frame/std_interceptors.js", ['re_frame.std_interceptors'], ['re_frame.interceptor', 're_frame.registrar', 'cljs.core', 're_frame.utils', 're_frame.loggers', 're_frame.cofx', 'clojure.data', 're_frame.db']);
 goog.addDependency("../re_frame/subs.js", ['re_frame.subs'], ['re_frame.interop', 're_frame.trace', 're_frame.registrar', 'cljs.core', 're_frame.utils', 're_frame.loggers', 're_frame.db']);
 goog.addDependency("../re_frame/core.js", ['re_frame.core'], ['re_frame.interop', 're_frame.interceptor', 're_frame.events', 're_frame.fx', 're_frame.registrar', 'cljs.core', 're_frame.router', 'clojure.set', 're_frame.std_interceptors', 're_frame.loggers', 're_frame.subs', 're_frame.cofx', 're_frame.db']);
-goog.addDependency("../maze_evolution/events.js", ['maze_evolution.events'], ['cljs.core', 'maze_evolution.db', 're_frame.core']);
+goog.addDependency("../maze_evolution/evolution.js", ['maze_evolution.evolution'], ['cljs.core', 're_frame.core']);
+goog.addDependency("../maze_evolution/db.js", ['maze_evolution.db'], ['cljs.core', 'maze_evolution.evolution']);
+goog.addDependency("../maze_evolution/events.js", ['maze_evolution.events'], ['cljs.core', 'maze_evolution.db', 'clojure.string', 're_frame.core']);
 goog.addDependency("../maze_evolution/subs.js", ['maze_evolution.subs'], ['cljs.core', 're_frame.core']);
-goog.addDependency("../maze_evolution/views.js", ['maze_evolution.views'], ['reagent.core', 'cljs.js', 'cljs.core', 'cljs.core.async', 'maze_evolution.events', 'maze_evolution.subs', 're_frame.core']);
+goog.addDependency("../maze_evolution/views.js", ['maze_evolution.views'], ['reagent.core', 'cljs.js', 'cljs.core', 'cljs.core.async', 'maze_evolution.events', 'cljs.pprint', 'maze_evolution.evolution', 'maze_evolution.subs', 're_frame.core']);
 goog.addDependency("../maze_evolution/config.js", ['maze_evolution.config'], ['cljs.core']);
 goog.addDependency("../maze_evolution/core.js", ['maze_evolution.core'], ['maze_evolution.views', 'reagent.core', 'cljs.core', 'maze_evolution.config', 'maze_evolution.events', 're_frame.core']);
 goog.addDependency("../figwheel/client/utils.js", ['figwheel.client.utils'], ['goog.userAgent.product', 'goog.string', 'cljs.core', 'goog.object', 'goog.string.StringBuffer', 'cljs.pprint', 'goog.async.Deferred', 'clojure.string', 'cljs.reader']);
