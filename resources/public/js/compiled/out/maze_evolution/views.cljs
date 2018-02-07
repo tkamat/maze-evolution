@@ -56,11 +56,17 @@
   (fn []
     [:input {:type "button" :value "TO THE GULAGS!"
              :on-click #(evolution/create-new-generation running)}]))
+(defn continuously-evolve-button []
+  (fn []
+    [:input {:type "button" :value "Continuously evolve"
+             :on-click #(evolution/continuously-evolve running)}]))
 (defn main-panel []
   [:div
    [title]
    [render-maze-and-ball]
    [test-button]
    [new-generation-button]
+   [continuously-evolve-button]
    [:pre (with-out-str (pprint (get-in @re-frame.db/app-db [:maze :current-position])))]
+   [:pre (with-out-str (pprint @(re-frame/subscribe [:current-fitness])))]
    ])

@@ -1,5 +1,13 @@
 (ns maze-evolution.evolution
-  (:require [re-frame.core :as re-frame]))
+  (:require-macros [cljs.core.async.macros :refer [go go-loop]])
+  (:require [re-frame.core :as re-frame]
+            [cljs.core.async :refer [put! chan <! >! timeout close!]]))
+
+(def population-size 64)
+(def move-time 3)
+(def individual-time (+ 300 (* 64 move-time)))
+(def generation-time (* individual-time population-size))
+
 (defn random-move []
   (let [num (rand-int 4)]
     (cond (= num 0)
@@ -15,35 +23,34 @@
     (random-move)
     ))
 (defn create-initial-population []
-  (for [x (range 0 64)]
+  (for [x (range 0 population-size)]
     {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0})) 
 (defn test-individual
-  ([move-sequence id] (re-frame/dispatch [:reset-position [0 1]])
-   (test-individual 0 move-sequence id))
-  ([t move-sequence id] (let [current-move (nth move-sequence t)]
-         (re-frame/dispatch [:move-ball current-move])
-         (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])
-         (if (>= t 63)
-           "Success"
-           (js/setTimeout #(test-individual (inc t) move-sequence id) 3)))))
+  [move-sequence id]
+  (re-frame/dispatch [:reset-position [0 1]])
+  (go-loop [move-sequence move-sequence]
+      (when-let [current-move (first move-sequence)]
+        (re-frame/dispatch [:move-ball current-move])
+        (<! (timeout move-time))
+        (recur (rest move-sequence)))
+      (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]]))
+  )
 (defn test-population
-  ([running] (reset! running true)
-   (test-population running 0))
-  ([running t] (let [population (re-frame/subscribe [:population])
-             current-individual (nth @population t)]
-         (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])
-         (re-frame/dispatch [:set-new-unique-id (:id current-individual)])
-         (test-individual (:move-sequence current-individual) (:id current-individual))
-         (if (>= t 63)
-           (do (reset! running false)
-             (re-frame/dispatch [:reset-individual]))
-           (do
-             (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])
-                              (test-population running (inc t))) 400))))))
+  [running]
+  (reset! running true)
+  (go-loop [population @(re-frame/subscribe [:population])]
+      (when-let [current-individual (first population)]
+        (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])
+        (re-frame/dispatch [:set-new-unique-id (:id current-individual)])
+        (test-individual (:move-sequence current-individual) (:id current-individual))
+        (<! (timeout individual-time))
+        (re-frame/dispatch [:next-individual])
+        (recur (rest population))))
+  (reset! running false))
 (defn sort-and-prune-population
   []
   (let [population (re-frame/subscribe [:population])]
-    (take 32 (reverse (sort-by #(:fitness %) @population)))))
+    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))
 
 (defn have-child
   [breeding-pair]
@@ -56,13 +63,14 @@
                 []
                 (reduce
                  (fn [baby-sequence parent-move]
-                   (cond
-                     (and (< (count baby-sequence) 64) (< (rand) (/ 1 32)))
-                     (concat baby-sequence (take-last (- 64 (count baby-sequence)) (second move-sequences)))
-                     (< (count baby-sequence) 64)
-                     (conj baby-sequence parent-move)
-                     :else
-                     baby-sequence))
+                   (let [sequence-not-full (< (count baby-sequence) 64)]
+                     (cond
+                       (and sequence-not-full (< (rand) (/ 1 32)))
+                       (concat baby-sequence (take-last (- 64 (count baby-sequence)) (second move-sequences)))
+                       sequence-not-full
+                       (conj baby-sequence parent-move)
+                       :else
+                       baby-sequence)))
                  []
                  (first move-sequences)))]
     {:id (str (gensym "individual")) :move-sequence baby-sequence :fitness 0})) 
@@ -81,7 +89,16 @@
   (let [new-population (pair-and-reproduce)]
     (re-frame/dispatch [:update-population new-population])
     (re-frame/dispatch [:next-generation])
+    (re-frame/dispatch [:reset-individual])
     (re-frame/dispatch [:set-new-move-sequence (:move-sequence (first new-population))])
     (re-frame/dispatch [:set-new-unique-id (:id (first new-population))])
     (re-frame/dispatch [:reset-position [0 1]]))
   (reset! running false))
+
+(defn continuously-evolve
+  [running]
+  (test-population running)
+  (js/setTimeout (fn []
+                   (create-new-generation running)
+                   (js/setTimeout #(continuously-evolve running) 500))
+                 (+ generation-time 5000)))

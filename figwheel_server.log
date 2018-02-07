@@ -4454,3 +4454,829 @@ notifying browser that file changed:  resources/public/js/compiled/out/maze_evol
 [0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
 [32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.483 seconds.[0m
 notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.377 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.081 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.897 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.829 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.788 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.833 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.922 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.806 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.724 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:49  column:3  ----[0m
+
+  [1mWrong number of args (0) passed to maze-evolution.evolution/test-population[0m
+
+  [36m45[0m  [36m             (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [36m46[0m  [36m                              (test-population running (inc t))) generation-time))))))[0m
+  [36m47[0m  [36m(defn continuously-evolve[0m
+  [36m48[0m  [36m  [][0m
+  [33m49[0m  [1m  (test-population)[0m
+  [0m  [0m  [33m  ^--- Wrong number of args (0) passed to maze-evolution.evolution/test-population[0m
+  [36m50[0m  [36m  (js/setTimeout (fn [][0m
+  [36m51[0m  [36m                   (create-new-generation)[0m
+  [36m52[0m  [36m                   (test-population))[0m
+  [36m53[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m54[0m  [36m(defn sort-and-prune-population[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:51  column:21  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/create-new-generation[0m
+
+  [36m47[0m  [36m(defn continuously-evolve[0m
+  [36m48[0m  [36m  [][0m
+  [36m49[0m  [36m  (test-population)[0m
+  [36m50[0m  [36m  (js/setTimeout (fn [][0m
+  [33m51[0m  [1m                   (create-new-generation)[0m
+  [0m  [0m  [33m                    ^--- Use of undeclared Var maze-evolution.evolution/create-new-generation[0m
+  [36m52[0m  [36m                   (test-population))[0m
+  [36m53[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m54[0m  [36m(defn sort-and-prune-population[0m
+  [36m55[0m  [36m  [][0m
+  [36m56[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:52  column:20  ----[0m
+
+  [1mWrong number of args (0) passed to maze-evolution.evolution/test-population[0m
+
+  [36m48[0m  [36m  [][0m
+  [36m49[0m  [36m  (test-population)[0m
+  [36m50[0m  [36m  (js/setTimeout (fn [][0m
+  [36m51[0m  [36m                   (create-new-generation)[0m
+  [33m52[0m  [1m                   (test-population))[0m
+  [0m  [0m  [33m                   ^--- Wrong number of args (0) passed to maze-evolution.evolution/test-population[0m
+  [36m53[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m54[0m  [36m(defn sort-and-prune-population[0m
+  [36m55[0m  [36m  [][0m
+  [36m56[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m57[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.715 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:50  column:3  ----[0m
+
+  [1mWrong number of args (0) passed to maze-evolution.evolution/test-population[0m
+
+  [36m46[0m  [36m             (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [36m47[0m  [36m                              (test-population running (inc t))) generation-time))))))[0m
+  [36m48[0m  [36m(defn continuously-evolve[0m
+  [36m49[0m  [36m  [][0m
+  [33m50[0m  [1m  (test-population )[0m
+  [0m  [0m  [33m  ^--- Wrong number of args (0) passed to maze-evolution.evolution/test-population[0m
+  [36m51[0m  [36m  (js/setTimeout (fn [][0m
+  [36m52[0m  [36m                   (create-new-generation)[0m
+  [36m53[0m  [36m                   (test-population views/test))[0m
+  [36m54[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m55[0m  [36m(defn sort-and-prune-population[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:52  column:21  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/create-new-generation[0m
+
+  [36m48[0m  [36m(defn continuously-evolve[0m
+  [36m49[0m  [36m  [][0m
+  [36m50[0m  [36m  (test-population )[0m
+  [36m51[0m  [36m  (js/setTimeout (fn [][0m
+  [33m52[0m  [1m                   (create-new-generation)[0m
+  [0m  [0m  [33m                    ^--- Use of undeclared Var maze-evolution.evolution/create-new-generation[0m
+  [36m53[0m  [36m                   (test-population views/test))[0m
+  [36m54[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m55[0m  [36m(defn sort-and-prune-population[0m
+  [36m56[0m  [36m  [][0m
+  [36m57[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:53  column:37  ----[0m
+
+  [1mNo such namespace: views, could not locate views.cljs, views.cljc, or JavaScript source providing "views"[0m
+
+  [36m49[0m  [36m  [][0m
+  [36m50[0m  [36m  (test-population )[0m
+  [36m51[0m  [36m  (js/setTimeout (fn [][0m
+  [36m52[0m  [36m                   (create-new-generation)[0m
+  [33m53[0m  [1m                   (test-population views/test))[0m
+  [0m  [0m  [33m                                    ^--- No such namespace: views, could not locate views.cljs, views.cljc, or JavaScript source providing "views"[0m
+  [36m54[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m55[0m  [36m(defn sort-and-prune-population[0m
+  [36m56[0m  [36m  [][0m
+  [36m57[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m58[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:53  column:37  ----[0m
+
+  [1mUse of undeclared Var views/test[0m
+
+  [36m49[0m  [36m  [][0m
+  [36m50[0m  [36m  (test-population )[0m
+  [36m51[0m  [36m  (js/setTimeout (fn [][0m
+  [36m52[0m  [36m                   (create-new-generation)[0m
+  [33m53[0m  [1m                   (test-population views/test))[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var views/test[0m
+  [36m54[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m55[0m  [36m(defn sort-and-prune-population[0m
+  [36m56[0m  [36m  [][0m
+  [36m57[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m58[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.195 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.144 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs   line:1  column:1  ----[0m
+
+  [1mOnly one :require form is allowed per namespace definition at line 1 src/cljs/maze_evolution/evolution.cljs[0m
+
+  [33m1[0m  [1m(ns maze-evolution.evolution[0m
+  [0m [0m  [33m^--- Only one :require form is allowed per namespace definition at line 1 src/cljs/maze_evolution/evolution.cljs[0m
+  [36m2[0m  [36m  (:require [re-frame.core :as re-frame])[0m
+  [36m3[0m  [36m  (:require [maze-evolution.views :as views])[0m
+  [36m4[0m  [36m  )[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:53  column:21  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/create-new-generation[0m
+
+  [36m49[0m  [36m(defn continuously-evolve[0m
+  [36m50[0m  [36m  [][0m
+  [36m51[0m  [36m  (test-population views/running)[0m
+  [36m52[0m  [36m  (js/setTimeout (fn [][0m
+  [33m53[0m  [1m                   (create-new-generation)[0m
+  [0m  [0m  [33m                    ^--- Use of undeclared Var maze-evolution.evolution/create-new-generation[0m
+  [36m54[0m  [36m                   (test-population views/test))[0m
+  [36m55[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m56[0m  [36m(defn sort-and-prune-population[0m
+  [36m57[0m  [36m  [][0m
+  [36m58[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:54  column:37  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.views/test[0m
+
+  [36m50[0m  [36m  [][0m
+  [36m51[0m  [36m  (test-population views/running)[0m
+  [36m52[0m  [36m  (js/setTimeout (fn [][0m
+  [36m53[0m  [36m                   (create-new-generation)[0m
+  [33m54[0m  [1m                   (test-population views/test))[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var maze-evolution.views/test[0m
+  [36m55[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m56[0m  [36m(defn sort-and-prune-population[0m
+  [36m57[0m  [36m  [][0m
+  [36m58[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m59[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.76 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:53  column:21  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/create-new-generation[0m
+
+  [36m49[0m  [36m(defn continuously-evolve[0m
+  [36m50[0m  [36m  [][0m
+  [36m51[0m  [36m  (test-population views/running)[0m
+  [36m52[0m  [36m  (js/setTimeout (fn [][0m
+  [33m53[0m  [1m                   (create-new-generation views/running)[0m
+  [0m  [0m  [33m                    ^--- Use of undeclared Var maze-evolution.evolution/create-new-generation[0m
+  [36m54[0m  [36m                   (test-population views/running))[0m
+  [36m55[0m  [36m                 (+ generation-time 5000)))[0m
+  [36m56[0m  [36m(defn sort-and-prune-population[0m
+  [36m57[0m  [36m  [][0m
+  [36m58[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.847 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.71 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:103  column:21  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/generation-time[0m
+
+  [36m 99[0m  [36m(test-population views/running)[0m
+  [36m100[0m  [36m(js/setTimeout (fn [][0m
+  [36m101[0m  [36m                 (create-new-generation views/running)[0m
+  [36m102[0m  [36m                 (test-population views/running))[0m
+  [33m103[0m  [1m               (+ generation-time 5000)))[0m
+  [0m   [0m  [33m                  ^--- Use of undeclared Var maze-evolution.evolution/generation-time[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.739 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.656 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.559 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.489 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.479 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/views.cljs   line:62  column:25  ----[0m
+
+  [1mWrong number of args (1) passed to maze-evolution.evolution/continuously-evolve[0m
+
+  [36m58[0m  [36m             :on-click #(evolution/create-new-generation running)}]))[0m
+  [36m59[0m  [36m(defn continuously-evolve-button [][0m
+  [36m60[0m  [36m  (fn [][0m
+  [36m61[0m  [36m    [:input {:type "button" :value "Continuously evolve"[0m
+  [33m62[0m  [1m             :on-click #(evolution/continuously-evolve running)}]))[0m
+  [0m  [0m  [33m                        ^--- Wrong number of args (1) passed to maze-evolution.evolution/continuously-evolve[0m
+  [36m63[0m  [36m(defn main-panel [][0m
+  [36m64[0m  [36m  [:div[0m
+  [36m65[0m  [36m   [title][0m
+  [36m66[0m  [36m   [render-maze-and-ball][0m
+  [36m67[0m  [36m   [test-button][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/views.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.509 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.691 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.502 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.598 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.635 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.56 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.654 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.514 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mInvalid :refer, var cljs.core.async/go does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.334 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mInvalid :refer, var cljs.core.async/go does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.333 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mInvalid :refer, var cljs.core.async/go does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.349 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mCould not locate clojure/core/async/macros__init.class or clojure/core/async/macros.clj on classpath.[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.39 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mInvalid :refer, var cljs.core.async/>!! does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.475 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mInvalid :refer, var cljs.core.async/>!! does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.308 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mInvalid :refer, var cljs.core.async/thread does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.332 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mInvalid :refer, var cljs.core.async/alts!! does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.626 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.609 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mAssert failed: Circular dependency detected, maze-evolution.evolution -> maze-evolution.views -> maze-evolution.evolution
+(every? (fn* [p1__3749#] (not (contains? *cljs-dep-set* p1__3749#))) deps)[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.612 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mAssert failed: Circular dependency detected, maze-evolution.evolution -> maze-evolution.views -> maze-evolution.evolution
+(every? (fn* [p1__3749#] (not (contains? *cljs-dep-set* p1__3749#))) deps)[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.559 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mAssert failed: Circular dependency detected, maze-evolution.evolution -> maze-evolution.views -> maze-evolution.evolution
+(every? (fn* [p1__3749#] (not (contains? *cljs-dep-set* p1__3749#))) deps)[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.759 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mAssert failed: Circular dependency detected, maze-evolution.evolution -> maze-evolution.views -> maze-evolution.evolution
+(every? (fn* [p1__3749#] (not (contains? *cljs-dep-set* p1__3749#))) deps)[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.698 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs  ----[0m
+
+  [1mAssert failed: Circular dependency detected, maze-evolution.evolution -> maze-evolution.views -> maze-evolution.evolution
+(every? (fn* [p1__3749#] (not (contains? *cljs-dep-set* p1__3749#))) deps)[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.257 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.037 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.888 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.194 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.21 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.976 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.444 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs   line:28  column:1  ----[0m
+
+  [1mParameter declaration "re-frame/dispatch" should be a vector[0m
+
+  [36m26[0m  [36m  (for [x (range 0 population-size)][0m
+  [36m27[0m  [36m    {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0})) [0m
+  [33m28[0m  [1m(defn test-individual[0m
+  [0m  [0m  [33m^--- Parameter declaration "re-frame/dispatch" should be a vector[0m
+  [36m29[0m  [36m  (re-frame/dispatch [:reset-position [0 1]])[0m
+  [36m30[0m  [36m  (test-individual 0 move-sequence id)[0m
+  [36m31[0m  [36m  ([t move-sequence id] (let [current-move (nth move-sequence t)][0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.441 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs   line:28  column:1  ----[0m
+
+  [1mParameter declaration "re-frame/dispatch" should be a vector[0m
+
+  [36m26[0m  [36m  (for [x (range 0 population-size)][0m
+  [36m27[0m  [36m    {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0})) [0m
+  [33m28[0m  [1m(defn test-individual[0m
+  [0m  [0m  [33m^--- Parameter declaration "re-frame/dispatch" should be a vector[0m
+  [36m29[0m  [36m  (re-frame/dispatch [:reset-position [0 1]])[0m
+  [36m30[0m  [36m  ([t move-sequence id] (let [current-move (nth move-sequence t)][0m
+  [36m31[0m  [36m         (re-frame/dispatch [:move-ball current-move])[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:31  column:41  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m27[0m  [36m    {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0})) [0m
+  [36m28[0m  [36m(defn test-individual[0m
+  [36m29[0m  [36m  [move-sequence id][0m
+  [36m30[0m  [36m  (re-frame/dispatch [:reset-position [0 1]])[0m
+  [33m31[0m  [1m  (let [current-move (nth move-sequence t)][0m
+  [0m  [0m  [33m                                        ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m32[0m  [36m                         (re-frame/dispatch [:move-ball current-move])[0m
+  [36m33[0m  [36m                         (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])[0m
+  [36m34[0m  [36m                         (if (>= t 63)[0m
+  [36m35[0m  [36m                           "Success"[0m
+  [36m36[0m  [36m                           (js/setTimeout #(test-individual (inc t) move-sequence id) move-time))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:34  column:34  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m30[0m  [36m  (re-frame/dispatch [:reset-position [0 1]])[0m
+  [36m31[0m  [36m  (let [current-move (nth move-sequence t)][0m
+  [36m32[0m  [36m                         (re-frame/dispatch [:move-ball current-move])[0m
+  [36m33[0m  [36m                         (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])[0m
+  [33m34[0m  [1m                         (if (>= t 63)[0m
+  [0m  [0m  [33m                                 ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m35[0m  [36m                           "Success"[0m
+  [36m36[0m  [36m                           (js/setTimeout #(test-individual (inc t) move-sequence id) move-time))))[0m
+  [36m37[0m  [36m(defn test-population[0m
+  [36m38[0m  [36m  ([running] (reset! running true)[0m
+  [36m39[0m  [36m   (test-population running 0))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:36  column:66  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m32[0m  [36m                         (re-frame/dispatch [:move-ball current-move])[0m
+  [36m33[0m  [36m                         (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])[0m
+  [36m34[0m  [36m                         (if (>= t 63)[0m
+  [36m35[0m  [36m                           "Success"[0m
+  [33m36[0m  [1m                           (js/setTimeout #(test-individual (inc t) move-sequence id) move-time))))[0m
+  [0m  [0m  [33m                                                                 ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m37[0m  [36m(defn test-population[0m
+  [36m38[0m  [36m  ([running] (reset! running true)[0m
+  [36m39[0m  [36m   (test-population running 0))[0m
+  [36m40[0m  [36m  ([running t] (let [population (re-frame/subscribe [:population])[0m
+  [36m41[0m  [36m             current-individual (nth @population t)][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.942 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.466 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs   line:31  column:3  ----[0m
+
+  [1mloop requires a vector for its binding[0m
+
+  [36m29[0m  [36m[move-sequence id][0m
+  [36m30[0m  [36m(re-frame/dispatch [:reset-position [0 1]])[0m
+  [33m31[0m  [1m(go-loop[0m
+  [0m  [0m  [33m^--- loop requires a vector for its binding[0m
+  [36m32[0m  [36m    (when-let [current-move (first move-sequence)][0m
+  [36m33[0m  [36m      (re-frame/dispatch [:move-ball current-move])[0m
+  [36m34[0m  [36m      (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.402 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs   line:31  column:3  ----[0m
+
+  [1mloop requires an even number of forms in binding vector[0m
+
+  [36m29[0m  [36m[move-sequence id][0m
+  [36m30[0m  [36m(re-frame/dispatch [:reset-position [0 1]])[0m
+  [33m31[0m  [1m(go-loop [move-sequence][0m
+  [0m  [0m  [33m^--- loop requires an even number of forms in binding vector[0m
+  [36m32[0m  [36m    (when-let [current-move (first move-sequence)][0m
+  [36m33[0m  [36m      (re-frame/dispatch [:move-ball current-move])[0m
+  [36m34[0m  [36m      (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])[0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.847 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.8 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.026 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.443 seconds.[0m
+[36m----  Could not Analyze  src/cljs/maze_evolution/evolution.cljs   line:37  column:1  ----[0m
+
+  [1mParameter declaration "reset!" should be a vector[0m
+
+  [36m35[0m  [36m        (<! (timeout move-time))[0m
+  [36m36[0m  [36m        (recur (rest move-sequence)))))[0m
+  [33m37[0m  [1m(defn test-population[0m
+  [0m  [0m  [33m^--- Parameter declaration "reset!" should be a vector[0m
+  [36m38[0m  [36m  (reset! running true)[0m
+  [36m39[0m  [36m  [running] (let [population (re-frame/subscribe [:population])[0m
+  [36m40[0m  [36m                    current-individual (nth @population t)][0m
+
+[36m----  Analysis Error : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:41  column:57  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m37[0m  [36m(defn test-population[0m
+  [36m38[0m  [36m  [running][0m
+  [36m39[0m  [36m  (reset! running true)[0m
+  [36m40[0m  [36m  (let [population (re-frame/subscribe [:population])[0m
+  [33m41[0m  [1m                    current-individual (nth @population t)][0m
+  [0m  [0m  [33m                                                        ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m42[0m  [36m                (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])[0m
+  [36m43[0m  [36m                (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m44[0m  [36m                (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [36m45[0m  [36m                (if (>= t (dec population-size))[0m
+  [36m46[0m  [36m                  (reset! running false)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:45  column:25  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m41[0m  [36m                    current-individual (nth @population t)][0m
+  [36m42[0m  [36m                (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])[0m
+  [36m43[0m  [36m                (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m44[0m  [36m                (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [33m45[0m  [1m                (if (>= t (dec population-size))[0m
+  [0m  [0m  [33m                        ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m46[0m  [36m                  (reset! running false)[0m
+  [36m47[0m  [36m                  (do[0m
+  [36m48[0m  [36m                    (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [36m49[0m  [36m                                     (test-population running (inc t))) individual-time)))))[0m
+  [36m50[0m  [36m(defn sort-and-prune-population[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:49  column:68  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m45[0m  [36m                (if (>= t (dec population-size))[0m
+  [36m46[0m  [36m                  (reset! running false)[0m
+  [36m47[0m  [36m                  (do[0m
+  [36m48[0m  [36m                    (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [33m49[0m  [1m                                     (test-population running (inc t))) individual-time)))))[0m
+  [0m  [0m  [33m                                                                   ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m50[0m  [36m(defn sort-and-prune-population[0m
+  [36m51[0m  [36m  [][0m
+  [36m52[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m53[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.937 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:42  column:49  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m38[0m  [36m[running][0m
+  [36m39[0m  [36m(reset! running true)[0m
+  [36m40[0m  [36m(go-loop [population @(re-frame/subscribe [:population])][0m
+  [36m41[0m  [36m    (let [population (re-frame/subscribe [:population])[0m
+  [33m42[0m  [1m          current-individual (nth @population t)][0m
+  [0m  [0m  [33m                                              ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m43[0m  [36m      (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])[0m
+  [36m44[0m  [36m      (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m45[0m  [36m      (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [36m46[0m  [36m      (if (>= t (dec population-size))[0m
+  [36m47[0m  [36m        (reset! running false)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:46  column:17  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m42[0m  [36m            current-individual (nth @population t)][0m
+  [36m43[0m  [36m        (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])[0m
+  [36m44[0m  [36m        (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m45[0m  [36m        (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [33m46[0m  [1m        (if (>= t (dec population-size))[0m
+  [0m  [0m  [33m                ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m47[0m  [36m          (reset! running false)[0m
+  [36m48[0m  [36m          (do[0m
+  [36m49[0m  [36m            (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [36m50[0m  [36m                             (test-population running (inc t))) individual-time))))))[0m
+  [36m51[0m  [36m(defn sort-and-prune-population[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:50  column:60  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m46[0m  [36m        (if (>= t (dec population-size))[0m
+  [36m47[0m  [36m          (reset! running false)[0m
+  [36m48[0m  [36m          (do[0m
+  [36m49[0m  [36m            (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [33m50[0m  [1m                             (test-population running (inc t))) individual-time))))))[0m
+  [0m  [0m  [33m                                                           ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m51[0m  [36m(defn sort-and-prune-population[0m
+  [36m52[0m  [36m  [][0m
+  [36m53[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m54[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.937 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:41  column:49  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m37[0m  [36m(defn test-population[0m
+  [36m38[0m  [36m  [running][0m
+  [36m39[0m  [36m  (reset! running true)[0m
+  [36m40[0m  [36m  (go-loop [population @(re-frame/subscribe [:population])][0m
+  [33m41[0m  [1m      (let [current-individual (nth @population t)][0m
+  [0m  [0m  [33m                                                ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m42[0m  [36m        (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])[0m
+  [36m43[0m  [36m        (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m44[0m  [36m        (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [36m45[0m  [36m        (if (>= t (dec population-size))[0m
+  [36m46[0m  [36m          (reset! running false)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:45  column:17  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m41[0m  [36m      (let [current-individual (nth @population t)][0m
+  [36m42[0m  [36m        (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])[0m
+  [36m43[0m  [36m        (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m44[0m  [36m        (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [33m45[0m  [1m        (if (>= t (dec population-size))[0m
+  [0m  [0m  [33m                ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m46[0m  [36m          (reset! running false)[0m
+  [36m47[0m  [36m          (do[0m
+  [36m48[0m  [36m            (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [36m49[0m  [36m                             (test-population running (inc t))) individual-time))))))[0m
+  [36m50[0m  [36m(defn sort-and-prune-population[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:49  column:60  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m45[0m  [36m        (if (>= t (dec population-size))[0m
+  [36m46[0m  [36m          (reset! running false)[0m
+  [36m47[0m  [36m          (do[0m
+  [36m48[0m  [36m            (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [33m49[0m  [1m                             (test-population running (inc t))) individual-time))))))[0m
+  [0m  [0m  [33m                                                           ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m50[0m  [36m(defn sort-and-prune-population[0m
+  [36m51[0m  [36m  [][0m
+  [36m52[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m53[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.736 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:45  column:17  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m41[0m  [36m      (when-let [current-individual (first population)][0m
+  [36m42[0m  [36m        (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])[0m
+  [36m43[0m  [36m        (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m44[0m  [36m        (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [33m45[0m  [1m        (if (>= t (dec population-size))[0m
+  [0m  [0m  [33m                ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m46[0m  [36m          (reset! running false)[0m
+  [36m47[0m  [36m          (do[0m
+  [36m48[0m  [36m            (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [36m49[0m  [36m                             (test-population running (inc t))) individual-time))))))[0m
+  [36m50[0m  [36m(defn sort-and-prune-population[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:49  column:60  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m45[0m  [36m        (if (>= t (dec population-size))[0m
+  [36m46[0m  [36m          (reset! running false)[0m
+  [36m47[0m  [36m          (do[0m
+  [36m48[0m  [36m            (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [33m49[0m  [1m                             (test-population running (inc t))) individual-time))))))[0m
+  [0m  [0m  [33m                                                           ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m50[0m  [36m(defn sort-and-prune-population[0m
+  [36m51[0m  [36m  [][0m
+  [36m52[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m53[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.777 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/evolution.cljs   line:47  column:56  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.evolution/t[0m
+
+  [36m43[0m  [36m        (re-frame/dispatch [:set-new-unique-id (:id current-individual)])[0m
+  [36m44[0m  [36m        (test-individual (:move-sequence current-individual) (:id current-individual))[0m
+  [36m45[0m  [36m        (<= (timeout individual-time))[0m
+  [36m46[0m  [36m        (js/setTimeout (fn [] (re-frame/dispatch [:next-individual])[0m
+  [33m47[0m  [1m                         (test-population running (inc t))) individual-time))))[0m
+  [0m  [0m  [33m                                                       ^--- Use of undeclared Var maze-evolution.evolution/t[0m
+  [36m48[0m  [36m(defn sort-and-prune-population[0m
+  [36m49[0m  [36m  [][0m
+  [36m50[0m  [36m  (let [population (re-frame/subscribe [:population])][0m
+  [36m51[0m  [36m    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/evolution.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.775 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.757 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.669 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.839 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.847 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.7 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.772 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.648 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.753 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.828 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.89 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.405 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.358 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.638 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.214 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.954 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.916 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.058 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.877 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
