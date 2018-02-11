@@ -10,26 +10,42 @@
 (defn move-if-eligible [direction maze-map current-position]
   (cond (= direction :N)
         (if (and
-             (>= (dec (first current-position)) 0)
-             (= 0 (nth (nth maze-map (dec (first current-position))) (last current-position))))
+             (>= (-> current-position
+                     first
+                     dec) 0)
+             (= 0 (-> maze-map
+                      (nth (dec (first current-position)))
+                      (nth (last current-position)))))
           [(dec (first current-position)) (last current-position)]
           current-position)
         (= direction :S)
         (if (and
-             (<= (inc (first current-position)) 10)
-             (= 0 (nth (nth maze-map (inc (first current-position))) (last current-position))))
+             (<= (-> current-position
+                     first
+                     inc) 10)
+             (= 0 (-> maze-map
+                      (nth (inc (first current-position)))
+                      (nth (last current-position)))))
           [(inc (first current-position)) (last current-position)]
           current-position)
         (= direction :E)
         (if (and
-             (<= (inc (last current-position)) 20)
-             (= 0 (nth (nth maze-map (first current-position)) (inc (last current-position)))))
+             (<= (-> current-position
+                     last
+                     inc) 20)
+             (= 0 (-> maze-map
+                      (nth (first current-position))
+                      (nth (inc (last current-position))))))
           [(first current-position) (inc (last current-position))]
           current-position)
         (= direction :W)
         (if (and
-             (>= (dec (last current-position)) 0)
-             (= 0 (nth (nth maze-map (first current-position)) (dec (last current-position)))))
+             (>= (-> current-position
+                     last
+                     dec) 0)
+             (= 0 (-> maze-map
+                      (nth (first current-position))
+                      (nth (dec (last current-position))))))
           [(first current-position) (dec (last current-position))]
           current-position)))
 (re-frame/reg-event-db
@@ -44,11 +60,12 @@
  (fn [db [_ [unique-id fitness]]]
    (update-in db [:evolution :population]
               (fn [population]
-                (conj (filter #(not= (:id %) unique-id) population) (update-in
-                                                                     (first (filter #(= (:id %) unique-id) population))
-                                                                               [:fitness]
-                                                                               (fn [old-fitness]
-                                                                                 fitness))))))) 
+                (->> fitness
+                     (fn [old-fitness])
+                     (update-in
+                      (first (filter #(= (:id %) unique-id) population))
+                      [:fitness])
+                     (conj (filter #(not= (:id %) unique-id) population)))))))
 (re-frame/reg-event-db
  :reset-position
  (fn [db [_ position]]
@@ -79,16 +96,32 @@
  (fn [db _]
    (update-in db [:evolution :generation]
               (fn [old-generation]
-                (str "Generation " (inc (js/parseInt (last (str/split old-generation " ")))))))))
+                (->> " "
+                     (str/split old-generation)
+                     last
+                     js/parseInt
+                     inc
+                     (str "Generation "))))))
 (re-frame/reg-event-db
  :next-individual
  (fn [db _]
    (update-in db [:evolution :individual]
               (fn [old-individual]
-                (str "Individual " (inc (js/parseInt (last (str/split old-individual " ")))))))))
+                (->> " "
+                     (str/split old-individual)
+                     last
+                     js/parseInt
+                     inc
+                     (str "Individual "))))))
 (re-frame/reg-event-db
  :reset-individual
  (fn [db _]
    (update-in db [:evolution :individual]
               (fn [old-individual]
                 "Individual 1"))))
+(re-frame/reg-event-db
+ :add-to-fitness-list
+ (fn [db [_ new-fitness]]
+   (update-in db [:evolution :fitness-list]
+              (fn [old-fitness-list]
+                (conj old-fitness-list new-fitness)))))

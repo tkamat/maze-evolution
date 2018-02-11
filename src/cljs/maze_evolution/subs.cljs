@@ -26,7 +26,9 @@
  :<- [:fitness-map]
  :<- [:current-position]
  (fn [[fitness-map current-position] _]
-   (nth (nth fitness-map (first current-position)) (last current-position))))
+   (-> fitness-map
+       (nth (first current-position))
+       (nth (last current-position)))))
 (re-frame/reg-sub
  :population
  (fn [db]
@@ -39,3 +41,7 @@
  :individual
  (fn [db]
    (get-in db [:evolution :individual])))
+(re-frame/reg-sub
+ :fitness-list
+ (fn [db]
+   (get-in db [:evolution :fitness-list])))

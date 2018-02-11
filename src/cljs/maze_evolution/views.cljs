@@ -36,14 +36,23 @@
   (let [maze (re-frame/subscribe [:maze-map])]
     (fn []
       [:svg {:width 630 :height 330 :id "maze"}
-       (vec (cons :g (create-rectangles @maze)))])))
+       (->> @maze
+            create-rectangles
+            (cons :g)
+            vec)])))
 (defn draw-ball
   []
   (let [ball-position (re-frame/subscribe [:current-position])]
     (fn []
-      [:div ][:circle {:style {:fill "red"} :r 12 :id "ball"
-                :cx (+ 15 (* 30 (last @ball-position)))
-                :cy (+ 15 (* 30 (first @ball-position)))}])))
+      [:svg [:circle {:style {:fill "red"} :r 12 :id "ball"
+                      :cx (->> @ball-position
+                               last
+                               (* 30)
+                               (+ 15))
+                      :cy (->> @ball-position
+                               first
+                               (* 30)
+                               (+ 15))}]])))
 (defn render-maze-and-ball []
   (conj ((draw-maze)) ((draw-ball))))
 (def running (atom false))
@@ -67,6 +76,10 @@
    [test-button]
    [new-generation-button]
    [continuously-evolve-button]
-   [:pre (with-out-str (pprint (get-in @re-frame.db/app-db [:maze :current-position])))]
-   [:pre (with-out-str (pprint @(re-frame/subscribe [:current-fitness])))]
-   ])
+   [:pre (-> @re-frame.db/app-db
+             (get-in [:maze :current-position])
+             pprint
+             with-out-str)]
+   [:pre (-> @(re-frame/subscribe [:current-fitness])
+             pprint
+             with-out-str)]])

@@ -33,20 +33,23 @@
         (re-frame/dispatch [:move-ball current-move])
         (<! (timeout move-time))
         (recur (rest move-sequence)))
-      (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]]))
-  )
+      (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])
+      @(re-frame/subscribe [:current-fitness])))
 (defn test-population
   [running]
-  (reset! running true)
-  (go-loop [population @(re-frame/subscribe [:population])]
+  (go-loop [population @(re-frame/subscribe [:population])
+            max-fitness 0]
       (when-let [current-individual (first population)]
         (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])
         (re-frame/dispatch [:set-new-unique-id (:id current-individual)])
-        (test-individual (:move-sequence current-individual) (:id current-individual))
-        (<! (timeout individual-time))
-        (re-frame/dispatch [:next-individual])
-        (recur (rest population))))
-  (reset! running false))
+        (let [current-fitness (test-individual (:move-sequence current-individual) (:id current-individual))]
+          (<! (timeout individual-time))
+          (re-frame/dispatch [:next-individual])
+          (if (> current-fitness max-fitness)
+            (recur (rest population) current-fitness)
+            (recur (rest population) max-fitness))))
+      max-fitness)
+  )
 (defn sort-and-prune-population
   []
   (let [population (re-frame/subscribe [:population])]
@@ -94,6 +97,11 @@
     (re-frame/dispatch [:set-new-unique-id (:id (first new-population))])
     (re-frame/dispatch [:reset-position [0 1]]))
   (reset! running false))
+
+(defn update-fitness-list
+  []
+  )
+
 
 (defn continuously-evolve
   [running]
