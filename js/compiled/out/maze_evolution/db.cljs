@@ -5,7 +5,8 @@
 (def default-db
   {:evolution {:population initial-population
                :generation "Generation 1"
-               :individual "Individual 1"}
+               :individual "Individual 1"
+               :fitness-list []}
    :maze {:map [[1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
                 [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1]
                 [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1]
@@ -20,10 +21,6 @@
           :current-position [0 1]
           :remaining-moves (:move-sequence (first initial-population))
           :unique-id (:id (first initial-population))
-          ;; [:S :S :S :S :S :E :E :S :S :W :W :S :S
-          ;;  :E :E :E :E :E :E :N :N :E :E :N :N :N :N :W :W :N :N
-          ;;  :E :E :E :E :S :S :E :E :N :N :E :E :E :E :E :E
-          ;;  :S :S :W :W :S :S :S :S :W :W :S :S :E :E :E :E :S]
           :fitness-map [[99  0 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99]
                         [99  1  0 -1 -2 -3 99 31 32 33 34 35 99 41 42 43 44 45 46 47 99]
                         [99  2 99 99 99 -4 99 30 99 99 99 36 99 40 99 99 99 99 99 48 99]
