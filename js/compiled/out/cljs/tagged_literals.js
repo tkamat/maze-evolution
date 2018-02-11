@@ -19,7 +19,7 @@ throw (new Error("UUID literal expects a string as its representation."));
 }
 
 try{return cljs.core.uuid.call(null,form);
-}catch (e47923){var e = e47923;
+}catch (e38852){var e = e38852;
 throw (new Error(e.message));
 }});
 cljs.tagged_literals.read_inst = (function cljs$tagged_literals$read_inst(form){
@@ -29,7 +29,7 @@ throw (new Error("Instance literal expects a string for its timestamp."));
 }
 
 try{return cljs.reader.read_date.call(null,form);
-}catch (e47924){var e = e47924;
+}catch (e38853){var e = e38853;
 throw (new Error(e.message));
 }});
 cljs.tagged_literals.valid_js_literal_key_QMARK_ = (function cljs$tagged_literals$valid_js_literal_key_QMARK_(k){
@@ -74,4 +74,4 @@ return (new cljs.tagged_literals.JSValue(form));
 });
 cljs.tagged_literals._STAR_cljs_data_readers_STAR_ = cljs.core.merge.call(null,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Symbol(null,"queue","queue",-1198599890,null),cljs.tagged_literals.read_queue,new cljs.core.Symbol(null,"uuid","uuid",-504564192,null),cljs.tagged_literals.read_uuid,new cljs.core.Symbol(null,"inst","inst",-2008473268,null),cljs.tagged_literals.read_inst,new cljs.core.Symbol(null,"js","js",-886355190,null),cljs.tagged_literals.read_js], null));
 
-//# sourceMappingURL=tagged_literals.js.map?rel=1517263077674
+//# sourceMappingURL=tagged_literals.js.map?rel=1518330157149

@@ -6,8 +6,8 @@ goog.require('re_frame.loggers');
 re_frame.registrar.kinds = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"sub","sub",-2093760025),null,new cljs.core.Keyword(null,"event","event",301435442),null,new cljs.core.Keyword(null,"cofx","cofx",2013202907),null,new cljs.core.Keyword(null,"fx","fx",-1237829572),null], null), null);
 re_frame.registrar.kind__GT_id__GT_handler = cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
 re_frame.registrar.get_handler = (function re_frame$registrar$get_handler(var_args){
-var G__30862 = arguments.length;
-switch (G__30862) {
+var G__41877 = arguments.length;
+switch (G__41877) {
 case 1:
 return re_frame.registrar.get_handler.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -37,11 +37,11 @@ return cljs.core.get.call(null,cljs.core.get.call(null,cljs.core.deref.call(null
 re_frame.registrar.get_handler.cljs$core$IFn$_invoke$arity$3 = (function (kind,id,required_QMARK_){
 var handler = re_frame.registrar.get_handler.call(null,kind,id);
 if(re_frame.interop.debug_enabled_QMARK_){
-if(cljs.core.truth_((function (){var and__28322__auto__ = required_QMARK_;
-if(cljs.core.truth_(and__28322__auto__)){
+if(cljs.core.truth_((function (){var and__36296__auto__ = required_QMARK_;
+if(cljs.core.truth_(and__36296__auto__)){
 return (handler == null);
 } else {
-return and__28322__auto__;
+return and__36296__auto__;
 }
 })())){
 re_frame.loggers.console.call(null,new cljs.core.Keyword(null,"error","error",-978969032),"re-frame: no ",[cljs.core.str.cljs$core$IFn$_invoke$arity$1(kind)].join('')," handler registered for: ",id);
@@ -69,8 +69,8 @@ cljs.core.swap_BANG_.call(null,re_frame.registrar.kind__GT_id__GT_handler,cljs.c
 return handler_fn;
 });
 re_frame.registrar.clear_handlers = (function re_frame$registrar$clear_handlers(var_args){
-var G__30865 = arguments.length;
-switch (G__30865) {
+var G__41880 = arguments.length;
+switch (G__41880) {
 case 0:
 return re_frame.registrar.clear_handlers.cljs$core$IFn$_invoke$arity$0();
 
@@ -118,4 +118,4 @@ return re_frame.loggers.console.call(null,new cljs.core.Keyword(null,"warn","war
 re_frame.registrar.clear_handlers.cljs$lang$maxFixedArity = 2;
 
 
-//# sourceMappingURL=registrar.js.map?rel=1517031107171
+//# sourceMappingURL=registrar.js.map?rel=1518330161784
