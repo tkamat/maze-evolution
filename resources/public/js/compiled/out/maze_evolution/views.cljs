@@ -44,7 +44,7 @@
   []
   (let [ball-position (re-frame/subscribe [:current-position])]
     (fn []
-      [:svg [:circle {:style {:fill "red"} :r 12 :id "ball"
+      [:svg [:circle {:style {:fill "green"} :r 12 :id "ball"
                       :cx (->> @ball-position
                                last
                                (* 30)
