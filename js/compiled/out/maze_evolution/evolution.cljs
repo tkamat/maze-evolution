@@ -8,7 +8,9 @@
 (def individual-time (+ 300 (* 64 move-time)))
 (def generation-time (* individual-time population-size))
 
-(defn random-move []
+(defn random-move
+  "Generates a random move between :N, :S, :E, and :W"
+  []
   (let [num (rand-int 4)]
     (cond (= num 0)
           :N
@@ -18,14 +20,19 @@
           :S
           (= num 3)
           :W)))
-(defn create-initial-individual []
+(defn create-initial-individual
+  "Creates a sequence of random moves representing an initial individual"
+  []
   (for [_ (range 0 64)]
     (random-move)
     ))
-(defn create-initial-population []
+(defn create-initial-population
+  "Creates a sequence of randomly generated individuals representing the original population"
+  []
   (for [x (range 0 population-size)]
-    {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0})) 
+    {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0}))
 (defn test-individual
+  "Tests an individual through the maze using its move sequence"
   [move-sequence id]
   (re-frame/dispatch [:reset-position [0 1]])
   (go-loop [move-sequence move-sequence]
@@ -36,6 +43,7 @@
       (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])
       @(re-frame/subscribe [:current-fitness])))
 (defn test-population
+  "Tests the entire population by looping through and testing each individual"
   [running]
   (go-loop [population @(re-frame/subscribe [:population])
             max-fitness 0]
@@ -51,11 +59,14 @@
       max-fitness)
   )
 (defn sort-and-prune-population
+  "Kills the bottom half of the population and sorts the remaining individuals by
+  fitness"
   []
   (let [population (re-frame/subscribe [:population])]
     (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))
 
 (defn have-child
+  "Uses crossing over and mutation to create an offspring from two parents"
   [breeding-pair]
   (let [move-sequences (shuffle (map #(:move-sequence %) breeding-pair))
         baby-sequence
@@ -79,6 +90,7 @@
     {:id (str (gensym "individual")) :move-sequence baby-sequence :fitness 0})) 
 
 (defn pair-and-reproduce
+  "Pairs all members of the population and run have-child twice"
   []
   (let [parents (sort-and-prune-population)]
     (reduce
@@ -87,6 +99,7 @@
      []
      (partition 2 (shuffle parents)))))
 (defn create-new-generation
+  "Creates a new population and updates state"
   [running]
   (reset! running true)
   (let [new-population (pair-and-reproduce)]
@@ -104,6 +117,7 @@
 
 
 (defn continuously-evolve
+  "Tests population in a loop and creates new generations continuously"
   [running]
   (test-population running)
   (js/setTimeout (fn []
