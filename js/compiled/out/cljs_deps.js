@@ -1,8 +1,8 @@
 goog.addDependency("base.js", ['goog'], []);
-goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.Uri', 'goog.object', 'goog.math.Integer', 'goog.string.StringBuffer', 'goog.array', 'goog.math.Long']);
-goog.addDependency("../process/env.js", ['process.env'], ['cljs.core']);
 goog.addDependency("../cljsjs/react/development/react.inc.js", ['cljsjs.react'], []);
 goog.addDependency("../cljsjs/create-react-class/development/create-react-class.inc.js", ['cljsjs.create_react_class'], ['cljsjs.react']);
+goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.Uri', 'goog.object', 'goog.math.Integer', 'goog.string.StringBuffer', 'goog.array', 'goog.math.Long']);
+goog.addDependency("../process/env.js", ['process.env'], ['cljs.core']);
 goog.addDependency("../reagent/interop.js", ['reagent.interop'], ['cljs.core']);
 goog.addDependency("../reagent/debug.js", ['reagent.debug'], ['cljs.core']);
 goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
@@ -136,10 +136,3 @@ goog.addDependency("../maze_evolution/subs.js", ['maze_evolution.subs'], ['cljs.
 goog.addDependency("../maze_evolution/views.js", ['maze_evolution.views'], ['reagent.core', 'cljs.js', 'cljs.core', 'cljs.core.async', 'maze_evolution.events', 'cljs.pprint', 'maze_evolution.evolution', 'maze_evolution.subs', 're_frame.core']);
 goog.addDependency("../maze_evolution/config.js", ['maze_evolution.config'], ['cljs.core']);
 goog.addDependency("../maze_evolution/core.js", ['maze_evolution.core'], ['maze_evolution.views', 'reagent.core', 'cljs.core', 'maze_evolution.config', 'maze_evolution.events', 're_frame.core']);
-goog.addDependency("../figwheel/client/utils.js", ['figwheel.client.utils'], ['goog.userAgent.product', 'goog.string', 'cljs.core', 'goog.object', 'goog.string.StringBuffer', 'cljs.pprint', 'goog.async.Deferred', 'clojure.string', 'cljs.reader']);
-goog.addDependency("../figwheel/client/file_reloading.js", ['figwheel.client.file_reloading'], ['goog.string', 'goog.net.jsloader', 'goog.Uri', 'cljs.core', 'goog.object', 'cljs.core.async', 'clojure.set', 'goog.html.legacyconversions', 'figwheel.client.utils', 'goog.async.Deferred', 'clojure.string']);
-goog.addDependency("../cljs/repl.js", ['cljs.repl'], ['cljs.core', 'cljs.spec.alpha']);
-goog.addDependency("../figwheel/client/socket.js", ['figwheel.client.socket'], ['cljs.core', 'goog.object', 'figwheel.client.utils', 'cljs.reader']);
-goog.addDependency("../figwheel/client/heads_up.js", ['figwheel.client.heads_up'], ['goog.dom', 'goog.string', 'cljs.core', 'goog.dom.dataset', 'goog.object', 'cljs.core.async', 'cljs.pprint', 'figwheel.client.utils', 'figwheel.client.socket', 'clojure.string']);
-goog.addDependency("../figwheel/client.js", ['figwheel.client'], ['goog.userAgent.product', 'goog.Uri', 'cljs.core', 'goog.object', 'cljs.core.async', 'figwheel.client.file_reloading', 'figwheel.client.utils', 'cljs.repl', 'figwheel.client.heads_up', 'figwheel.client.socket', 'clojure.string', 'cljs.reader']);
-goog.addDependency("../figwheel/connect/build_dev.js", ['figwheel.connect.build_dev'], ['cljs.core', 'maze_evolution.core', 'figwheel.client', 'figwheel.client.utils']);

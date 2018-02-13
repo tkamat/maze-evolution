@@ -2,8 +2,8 @@
 goog.provide('re_frisk_shell.re_com.ui');
 goog.require('cljs.core');
 re_frisk_shell.re_com.ui.small_button = (function re_frisk_shell$re_com$ui$small_button(var_args){
-var G__41252 = arguments.length;
-switch (G__41252) {
+var G__28908 = arguments.length;
+switch (G__28908) {
 case 1:
 return re_frisk_shell.re_com.ui.small_button.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -22,10 +22,10 @@ re_frisk_shell.re_com.ui.small_button.cljs$core$IFn$_invoke$arity$1 = (function 
 return re_frisk_shell.re_com.ui.small_button.call(null,cljs.core.PersistentArrayMap.EMPTY,label);
 });
 
-re_frisk_shell.re_com.ui.small_button.cljs$core$IFn$_invoke$arity$2 = (function (p__41253,label){
-var map__41254 = p__41253;
-var map__41254__$1 = ((((!((map__41254 == null)))?((((map__41254.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__41254.cljs$core$ISeq$)))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__41254):map__41254);
-var on_click = cljs.core.get.call(null,map__41254__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
+re_frisk_shell.re_com.ui.small_button.cljs$core$IFn$_invoke$arity$2 = (function (p__28909,label){
+var map__28910 = p__28909;
+var map__28910__$1 = ((((!((map__28910 == null)))?((((map__28910.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__28910.cljs$core$ISeq$)))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__28910):map__28910);
+var on_click = cljs.core.get.call(null,map__28910__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a","a",-2123407586),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"href","href",-793805698),"#",new cljs.core.Keyword(null,"class","class",-2030961996),"btn btn-primary btn-xs",new cljs.core.Keyword(null,"on-click","on-click",1632826543),on_click], null),label], null);
 });
 
@@ -35,8 +35,8 @@ re_frisk_shell.re_com.ui.big_button = (function re_frisk_shell$re_com$ui$big_but
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a","a",-2123407586),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"href","href",-793805698),"#",new cljs.core.Keyword(null,"class","class",-2030961996),"btn btn-primary btn-lg",new cljs.core.Keyword(null,"style","style",-496642736),style], null),label], null);
 });
 re_frisk_shell.re_com.ui.scroller = (function re_frisk_shell$re_com$ui$scroller(var_args){
-var G__41258 = arguments.length;
-switch (G__41258) {
+var G__28914 = arguments.length;
+switch (G__28914) {
 case 1:
 return re_frisk_shell.re_com.ui.scroller.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -62,4 +62,4 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
 re_frisk_shell.re_com.ui.scroller.cljs$lang$maxFixedArity = 2;
 
 
-//# sourceMappingURL=ui.js.map?rel=1518491419285
+//# sourceMappingURL=ui.js.map?rel=1518565235625
