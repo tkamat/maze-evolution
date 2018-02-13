@@ -20,6 +20,7 @@
                    [binaryage/devtools "0.9.4"]
                    [org.clojure/tools.nrepl "0.2.10"]
                    [com.cemerick/piggieback "0.2.2"]
+                   [re-frisk "0.5.3"]
                    ]
     :plugins      [[lein-figwheel "0.5.14"]]
     :cljsbuild {:builds [{:compiler {
@@ -28,7 +29,8 @@
                                     :output-to            "resources/public/js/compiled/app.js"
                                     :output-dir           "resources/public/js/compiled/out"
                                     :asset-path           "js/compiled/out"
-                                    :preloads             [devtools.preload]
+                                     :preloads             [devtools.preload
+                                                            re-frisk.preload]
                                     :external-config      {:devtools/config {:features-to-install :all}}
                                     :source-map-timestamp true
                                     :main                 "maze-evolution.core"}
