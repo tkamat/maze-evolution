@@ -1,60 +1,21 @@
 (ns maze-evolution.events
-  (:require [re-frame.core :as re-frame]
-            [clojure.string :as str]
-            [maze-evolution.db :as db]))
+  (:require [clojure.string :as str]
+            [maze-evolution.evolution :as evolution]
+            [maze-evolution.db :as db]
+            [re-frame.core :as re-frame]))
 
 (re-frame/reg-event-db
  :initialize-db
  (fn [_ _]
    db/default-db))
-(defn move-if-eligible [direction maze-map current-position]
-  (cond (= direction :N)
-        (if (and
-             (>= (-> current-position
-                     first
-                     dec) 0)
-             (= 0 (-> maze-map
-                      (nth (dec (first current-position)))
-                      (nth (last current-position)))))
-          [(dec (first current-position)) (last current-position)]
-          current-position)
-        (= direction :S)
-        (if (and
-             (<= (-> current-position
-                     first
-                     inc) 10)
-             (= 0 (-> maze-map
-                      (nth (inc (first current-position)))
-                      (nth (last current-position)))))
-          [(inc (first current-position)) (last current-position)]
-          current-position)
-        (= direction :E)
-        (if (and
-             (<= (-> current-position
-                     last
-                     inc) 20)
-             (= 0 (-> maze-map
-                      (nth (first current-position))
-                      (nth (inc (last current-position))))))
-          [(first current-position) (inc (last current-position))]
-          current-position)
-        (= direction :W)
-        (if (and
-             (>= (-> current-position
-                     last
-                     dec) 0)
-             (= 0 (-> maze-map
-                      (nth (first current-position))
-                      (nth (dec (last current-position))))))
-          [(first current-position) (dec (last current-position))]
-          current-position)))
+
 (re-frame/reg-event-db
  :move-ball
  (fn [db [_ direction]]
    (update-in db [:maze :current-position]
               (fn [current-position]
                 (let [maze-map (get-in db [:maze :map])]
-                  (move-if-eligible direction maze-map current-position))))))
+                  (evolution/move-if-eligible direction maze-map current-position))))))
 (re-frame/reg-event-db
  :update-fitness
  (fn [db [_ [unique-id fitness]]]

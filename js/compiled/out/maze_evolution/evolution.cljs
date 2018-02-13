@@ -1,7 +1,9 @@
 (ns maze-evolution.evolution
-  (:require-macros [cljs.core.async.macros :refer [go go-loop]])
-  (:require [re-frame.core :as re-frame]
-            [cljs.core.async :refer [put! chan <! >! timeout close!]]))
+  (:require [cljs.core.async :refer [<! timeout]]
+            [re-frame.core :as re-frame])
+  (:require-macros
+   [cljs.core.async.macros :refer [go-loop]]
+   [re-frame.core :as re-frame]))
 
 (def population-size 64)
 (def move-time 3)
@@ -20,6 +22,51 @@
           :S
           (= num 3)
           :W)))
+
+(defn move-if-eligible
+  "Move an individual by a cardinal direction, if there isn't a wall."
+  [direction maze-map current-position]
+  (cond (= direction :N)
+        (if (and
+             (>= (-> current-position
+                     first
+                     dec) 0)
+             (= 0 (-> maze-map
+                      (nth (dec (first current-position)))
+                      (nth (last current-position)))))
+          [(dec (first current-position)) (last current-position)]
+          current-position)
+        (= direction :S)
+        (if (and
+             (<= (-> current-position
+                     first
+                     inc) 10)
+             (= 0 (-> maze-map
+                      (nth (inc (first current-position)))
+                      (nth (last current-position)))))
+          [(inc (first current-position)) (last current-position)]
+          current-position)
+        (= direction :E)
+        (if (and
+             (<= (-> current-position
+                     last
+                     inc) 20)
+             (= 0 (-> maze-map
+                      (nth (first current-position))
+                      (nth (inc (last current-position))))))
+          [(first current-position) (inc (last current-position))]
+          current-position)
+        (= direction :W)
+        (if (and
+             (>= (-> current-position
+                     last
+                     dec) 0)
+             (= 0 (-> maze-map
+                      (nth (first current-position))
+                      (nth (dec (last current-position))))))
+          [(first current-position) (dec (last current-position))]
+          current-position)))
+
 (defn create-initial-individual
   "Creates a sequence of random moves representing an initial individual"
   []
@@ -40,30 +87,23 @@
         (re-frame/dispatch [:move-ball current-move])
         (<! (timeout move-time))
         (recur (rest move-sequence)))
-      (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])
-      @(re-frame/subscribe [:current-fitness])))
+      (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])))
 (defn test-population
   "Tests the entire population by looping through and testing each individual"
   [running]
-  (go-loop [population @(re-frame/subscribe [:population])
-            max-fitness 0]
+  (go-loop [population @(re-frame/subscribe [:population])]
       (when-let [current-individual (first population)]
         (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])
         (re-frame/dispatch [:set-new-unique-id (:id current-individual)])
-        (let [current-fitness (test-individual (:move-sequence current-individual) (:id current-individual))]
-          (<! (timeout individual-time))
-          (re-frame/dispatch [:next-individual])
-          (if (> current-fitness max-fitness)
-            (recur (rest population) current-fitness)
-            (recur (rest population) max-fitness))))
-      max-fitness)
-  )
+        (test-individual (:move-sequence current-individual) (:id current-individual))
+        (<! (timeout individual-time))
+        (re-frame/dispatch [:next-individual])
+        (recur (rest population)))))
 (defn sort-and-prune-population
   "Kills the bottom half of the population and sorts the remaining individuals by
   fitness"
-  []
-  (let [population (re-frame/subscribe [:population])]
-    (take (/ population-size 2) (reverse (sort-by #(:fitness %) @population)))))
+  [population]
+  (take (/ population-size 2) (reverse (sort-by #(:fitness %) population))))
 
 (defn have-child
   "Uses crossing over and mutation to create an offspring from two parents"
@@ -91,8 +131,8 @@
 
 (defn pair-and-reproduce
   "Pairs all members of the population and run have-child twice"
-  []
-  (let [parents (sort-and-prune-population)]
+  [population]
+  (let [parents (sort-and-prune-population population)]
     (reduce
      (fn [new-generation breeding-pair]
        (concat new-generation breeding-pair (map have-child (repeat 2 breeding-pair))))
@@ -102,7 +142,7 @@
   "Creates a new population and updates state"
   [running]
   (reset! running true)
-  (let [new-population (pair-and-reproduce)]
+  (let [new-population (pair-and-reproduce @(re-frame/subscribe [:population]))]
     (re-frame/dispatch [:update-population new-population])
     (re-frame/dispatch [:next-generation])
     (re-frame/dispatch [:reset-individual])
@@ -124,3 +164,30 @@
                    (create-new-generation running)
                    (js/setTimeout #(continuously-evolve running) 500))
                  (+ generation-time 5000)))
+
+(defn headless-evolution-test-and-get-maximum-fitness
+  "Creates an initial population and tests it n times without a user interface.
+  Returns a list containing the maximum fitness for every generation"
+  [maze fitness-map n]
+  (loop [i 1
+         population (create-initial-population)
+         max-fitness-list []]
+    (let [fitness-list (->> population
+                            (map :move-sequence)
+                            (reduce (fn [position-list individual]
+                                      (conj position-list
+                                            (reduce (fn [position direction]
+                                                      (move-if-eligible direction maze position))
+                                                    [0 1]
+                                                    individual)))
+                                    [])
+                            (reduce (fn [fitness-list position]
+                                      (conj fitness-list (get-in fitness-map position)))
+                                    []))
+          new-population (->> (range 0 (count fitness-list))
+                              (map (fn [i] (update (nth population i) :fitness #(nth fitness-list i))))
+                              (pair-and-reproduce))]
+      (if (>= i n)
+        max-fitness-list
+        (recur (inc i) new-population (conj  max-fitness-list (apply max fitness-list)))))))
+
