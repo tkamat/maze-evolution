@@ -86,3 +86,10 @@
    (update-in db [:evolution :fitness-list]
               (fn [old-fitness-list]
                 (conj old-fitness-list new-fitness)))))
+
+(re-frame/reg-event-db
+ :change-tab
+ (fn [db [_ new-tab]]
+   (update-in db [:tab]
+              (fn [old-tab]
+                new-tab))))

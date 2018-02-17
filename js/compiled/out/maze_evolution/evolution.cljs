@@ -185,7 +185,7 @@
                                       (conj fitness-list (get-in fitness-map position)))
                                     []))
           new-population (->> (range 0 (count fitness-list))
-                              (map (fn [i] (update (nth population i) :fitness #(nth fitness-list i))))
+                              (map (fn [i] (update (nth population i) :fitness (fn [_] (nth fitness-list i)))))
                               (pair-and-reproduce))]
       (if (>= i n)
         max-fitness-list
