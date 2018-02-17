@@ -3,7 +3,8 @@
 
 (def initial-population (evolution/create-initial-population)) 
 (def default-db
-  {:evolution {:population initial-population
+  {:tab :about
+   :evolution {:population initial-population
                :generation "Generation 1"
                :individual "Individual 1"
                :fitness-list []}

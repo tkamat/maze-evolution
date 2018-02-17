@@ -6409,3 +6409,404 @@ notifying browser that file changed:  resources/public/js/compiled/out/maze_evol
 [0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
 [32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.764 seconds.[0m
 notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.361 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.203 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.449 seconds.[0m
+[36m----  Could not Read  src/cljs/maze_evolution/views.cljs   line:77 ----[0m
+
+  [1m/home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 77, col 35] Unmatched delimiter ).[0m
+
+  [36m75[0m  [36m     [test-button][0m
+  [36m76[0m  [36m     [new-generation-button][0m
+  [33m77[0m  [1m     [continuously-evolve-button]))][0m
+  [0m  [0m  [33m     /home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 77, col 35] Unmatched delimiter ).[0m
+  [36m78[0m  [36m(defn main-panel [][0m
+  [36m79[0m  [36m  [:div[0m
+  [36m80[0m  [36m   [title][0m
+
+[36m----  Reader Error : Please see src/cljs/maze_evolution/views.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.902 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.935 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.415 seconds.[0m
+[36m----  Could not Read  src/cljs/maze_evolution/views.cljs   line:74 ----[0m
+
+  [1m/home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 74, col 33] The map literal starting with button-group on line 74 column 19 contains 1 form(s). Map literals must contain an even number of forms.[0m
+
+  [36m72[0m  [36m(defn button-group [][0m
+  [36m73[0m  [36m  (fn [][0m
+  [33m74[0m  [1m    [:div {:class {button-group}}[0m
+  [0m  [0m  [33m    /home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 74, col 33] The map literal starting with button-group on line 74 column 19 contains 1 form(s). Map literals must contain an even number of forms.[0m
+  [36m75[0m  [36m     [test-button][0m
+  [36m76[0m  [36m     [new-generation-button][0m
+  [36m77[0m  [36m     [continuously-evolve-button]]))[0m
+
+[36m----  Reader Error : Please see src/cljs/maze_evolution/views.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.942 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.897 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.139 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.856 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.914 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.966 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.837 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.781 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.794 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.683 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.785 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.696 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.829 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.376 seconds.[0m
+[36m----  Could not Read  src/cljs/maze_evolution/db.cljs   line:35 ----[0m
+
+  [1m/home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/db.cljs [line 35, col 92] The map literal starting with :page on line 6 column 3 contains 5 form(s). Map literals must contain an even number of forms.[0m
+
+  [36m33[0m  [36m[99 12 99 99 99 99 99 20 99 22 99 99 99 99 99 58 99 99 99 99 99][0m
+  [36m34[0m  [36m[99 13 14 15 16 17 18 19 99 21 20 19 99 57 58 59 60 61 62 63 99][0m
+  [33m35[0m  [1m[99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 64 99]]}})[0m
+  [0m  [0m  [33m/home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/db.cljs [line 35, col 92] The map literal starting with :page on line 6 column 3 contains 5 form(s). Map literals must contain an even number of forms.[0m
+
+[36m----  Reader Error : Please see src/cljs/maze_evolution/db.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.273 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/db.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.155 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/events.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.98 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/subs.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.078 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.983 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.809 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.852 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.906 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.796 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.749 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.919 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.802 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.738 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.79 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.837 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.86 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.697 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.771 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.742 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.715 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.635 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.622 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.779 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.679 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.718 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.381 seconds.[0m
+[36m----  Could not Read  src/cljs/maze_evolution/views.cljs   line:137 ----[0m
+
+  [1m/home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 137, col 72] Invalid symbol: https://github.com/you.[0m
+
+  [36m135[0m  [36m  [][0m
+  [36m136[0m  [36m  [:div[0m
+  [33m137[0m  [1m   {:dangerouslySetInnerHTML {:___html "<a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>"}}])[0m
+  [0m   [0m  [33m   /home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 137, col 72] Invalid symbol: https://github.com/you.[0m
+  [36m138[0m  [36m[0m
+  [36m139[0m  [36m(defn main-panel [][0m
+  [36m140[0m  [36m  [:div[0m
+
+[36m----  Reader Error : Please see src/cljs/maze_evolution/views.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 0.512 seconds.[0m
+[36m----  Could not Read  src/cljs/maze_evolution/views.cljs   line:137 ----[0m
+
+  [1m/home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 137, col 75] Invalid symbol: https://github.com/tkamat.[0m
+
+  [36m135[0m  [36m  [][0m
+  [36m136[0m  [36m  [:div[0m
+  [33m137[0m  [1m   {:dangerouslySetInnerHTML {:___html "<a href="https://github.com/tkamat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>"}}])[0m
+  [0m   [0m  [33m   /home/tushaar/Projects/maze-evolution/src/cljs/maze_evolution/views.cljs [line 137, col 75] Invalid symbol: https://github.com/tkamat.[0m
+  [36m138[0m  [36m[0m
+  [36m139[0m  [36m(defn main-panel [][0m
+  [36m140[0m  [36m  [:div[0m
+
+[36m----  Reader Error : Please see src/cljs/maze_evolution/views.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.861 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.79 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.834 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[36m----  Compiler Warning on   src/cljs/maze_evolution/views.cljs   line:136  column:4  ----[0m
+
+  [1mUse of undeclared Var maze-evolution.views/github[0m
+
+  [36m132[0m  [36m   [current-tab-underline]])[0m
+  [36m133[0m  [36m[0m
+  [36m134[0m  [36m(defn github-badge [][0m
+  [36m135[0m  [36m  [:a.github-badge[0m
+  [33m136[0m  [1m   github[0m
+  [0m   [0m  [33m   ^--- Use of undeclared Var maze-evolution.views/github[0m
+  [36m137[0m  [36m   [:img {:style {:position "absolute" :top 0 :left 0 :border 0}[0m
+  [36m138[0m  [36m          :alt "Fork me on GitHub"[0m
+  [36m139[0m  [36m          :src "https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"}]])[0m
+  [36m140[0m  [36m[0m
+  [36m141[0m  [36m(defn main-panel [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/maze_evolution/views.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.847 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.79 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.805 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.709 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.734 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.812 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.628 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 0.771 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/views.js
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css
+Notifying browser that CSS file changed: resources/public/css/maze.css

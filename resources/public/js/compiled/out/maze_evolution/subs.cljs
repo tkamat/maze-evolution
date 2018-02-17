@@ -45,3 +45,7 @@
  :fitness-list
  (fn [db]
    (get-in db [:evolution :fitness-list])))
+(re-frame/reg-sub
+ :tab
+ (fn [db]
+   (get-in db [:tab])))
