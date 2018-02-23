@@ -1,13 +1,14 @@
 (ns maze-evolution.evolution
   (:require [cljs.core.async :refer [<! timeout]]
-            [re-frame.core :as re-frame])
+            [re-frame.core :as re-frame]
+            [clojure.core.reducers :as reducers])
   (:require-macros
    [cljs.core.async.macros :refer [go-loop]]
    [re-frame.core :as re-frame]))
 
 (def population-size 64)
-(def move-time 3)
-(def individual-time (+ 300 (* 64 move-time)))
+(def move-time 1)
+(def individual-time (+ 50 (* 64 move-time)))
 (def generation-time (* individual-time population-size))
 
 (defn random-move
@@ -127,7 +128,7 @@
                        baby-sequence)))
                  []
                  (first move-sequences)))]
-    {:id (str (gensym "individual")) :move-sequence baby-sequence :fitness 0})) 
+    {:id (str (gensym "individual")) :move-sequence baby-sequence :fitness 0}))
 
 (defn pair-and-reproduce
   "Pairs all members of the population and run have-child twice"
@@ -151,11 +152,6 @@
     (re-frame/dispatch [:reset-position [0 1]]))
   (reset! running false))
 
-(defn update-fitness-list
-  []
-  )
-
-
 (defn continuously-evolve
   "Tests population in a loop and creates new generations continuously"
   [running]
@@ -174,13 +170,15 @@
          max-fitness-list []]
     (let [fitness-list (->> population
                             (map :move-sequence)
-                            (reduce (fn [position-list individual]
-                                      (conj position-list
-                                            (reduce (fn [position direction]
-                                                      (move-if-eligible direction maze position))
-                                                    [0 1]
-                                                    individual)))
-                                    [])
+                            (reducers/fold
+                             (fn
+                               ([] [])
+                               ([position-list individual]
+                                (conj position-list
+                                      (reduce (fn [position direction]
+                                                (move-if-eligible direction maze position))
+                                              [0 1]
+                                              individual)))))
                             (reduce (fn [fitness-list position]
                                       (conj fitness-list (get-in fitness-map position)))
                                     []))
@@ -190,4 +188,3 @@
       (if (>= i n)
         max-fitness-list
         (recur (inc i) new-population (conj  max-fitness-list (apply max fitness-list)))))))
-
