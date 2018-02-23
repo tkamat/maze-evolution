@@ -48,15 +48,15 @@
   []
   (let [ball-position (re-frame/subscribe [:current-position])]
     (fn []
-      [:svg [:circle {:style {:fill "coral"} :r 12 :id "ball"
-                      :cx (->> @ball-position
-                               last
-                               (* 30)
-                               (+ 15))
-                      :cy (->> @ball-position
-                               first
-                               (* 30)
-                               (+ 15))}]])))
+      [:g [:svg [:circle {:style {:fill "coral"} :r 12 :id "ball"
+                          :cx (->> @ball-position
+                                   last
+                                   (* 30)
+                                   (+ 15))
+                          :cy (->> @ball-position
+                                   first
+                                   (* 30)
+                                   (+ 15))}]]])))
 (defn render-maze-and-ball []
   (conj ((draw-maze)) ((draw-ball))))
 (def running (atom false))
@@ -102,16 +102,22 @@
              with-out-str)]])
 (defn about-panel
   []
-  [:p#about "Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec
-  facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-  Nunc porta vulputate tellus. Nunc rutrum turpis sed pede. Sed bibendum.
-  Aliquam posuere. Nunc aliquet, augue nec adipiscing interdum, lacus tellus
-  malesuada massa, quis varius mi purus non odio. Pellentesque condimentum,
-  magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque
-  sit amet urna. Curabitur vulputate vestibulum lorem. Fusce sagittis, libero
-  non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla
-  lacinia eros. Sed id ligula quis est convallis tempor. Curabitur lacinia
-  pulvinar nibh. Nam a sapien."])
+  [:div [:p#about "Nullam eu ante vel est convallis dignissim. Fusce suscipit,
+  wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat
+  quis odio. Nunc porta vulputate tellus. Nunc rutrum turpis sed pede. Sed
+  bibendum. Aliquam posuere. Nunc aliquet, augue nec adipiscing interdum, lacus
+  tellus malesuada massa, quis varius mi purus non odio. Pellentesque
+  condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus
+  diam neque sit amet urna. Curabitur vulputate vestibulum lorem. Fusce
+  sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate
+  neque nulla lacinia eros. Sed id ligula quis est convallis tempor. Curabitur
+  lacinia pulvinar nibh. Nam a sapien."]
+   [:p#about "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+   hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl,
+   tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus
+   et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec
+   vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla.
+   Nullam rutrum. Nam vestibulum accumsan nisl." ]])
 
 (defn current-panel
   []

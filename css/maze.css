@@ -3,9 +3,10 @@ body {
     color: dimgrey;
     text-align: center;
     font-family: "Verdana", Sans-serif;
-    animation: fadein 3s;
+    animation: fadein 5s;
     font-size: 14px;
 }
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -49,11 +50,9 @@ h3 {
     color: darkgrey;
 }
 
-
-
 .button-group button {
     background-color: coral;
-    border: 1px solid brown;
+    border: none;
     color: white;
     cursor: pointer;
     font-family: inherit;
@@ -61,6 +60,11 @@ h3 {
     margin: 10px;
     margin-top: 20px;
     float: center;
+}
+
+
+.button-group button:hover {
+    background-color: tomato;
 }
 
 .tabs {
@@ -84,6 +88,7 @@ button:focus {
     outline: none;
 }
 
+
 hr {
     height: .25rem;
     width: 50%;
@@ -97,5 +102,3 @@ hr {
     margin-right: 200px;
     text-align: left;
 }
-
-

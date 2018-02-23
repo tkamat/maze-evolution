@@ -20,22 +20,22 @@ return cljs.core.apply.call(null,cljs.core.concat,(function (){var row = (0);
 var rectangles = cljs.core.PersistentVector.EMPTY;
 while(true){
 if((row < (11))){
-var G__45937 = (row + (1));
-var G__45938 = cljs.core.conj.call(null,rectangles,(function (){var col = (0);
+var G__43744 = (row + (1));
+var G__43745 = cljs.core.conj.call(null,rectangles,(function (){var col = (0);
 var rectangles__$1 = cljs.core.PersistentVector.EMPTY;
 while(true){
 if((col < (21))){
 if(cljs.core._EQ_.call(null,(1),cljs.core.nth.call(null,cljs.core.nth.call(null,maze,row),col))){
-var G__45939 = (col + (1));
-var G__45940 = cljs.core.conj.call(null,rectangles__$1,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"rect","rect",-108902628),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"x","x",2099068185),((30) * col),new cljs.core.Keyword(null,"y","y",-1757859776),((30) * row),new cljs.core.Keyword(null,"width","width",-384071477),(30),new cljs.core.Keyword(null,"height","height",1025178622),(30)], null)], null));
-col = G__45939;
-rectangles__$1 = G__45940;
+var G__43746 = (col + (1));
+var G__43747 = cljs.core.conj.call(null,rectangles__$1,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"rect","rect",-108902628),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"x","x",2099068185),((30) * col),new cljs.core.Keyword(null,"y","y",-1757859776),((30) * row),new cljs.core.Keyword(null,"width","width",-384071477),(30),new cljs.core.Keyword(null,"height","height",1025178622),(30)], null)], null));
+col = G__43746;
+rectangles__$1 = G__43747;
 continue;
 } else {
-var G__45941 = (col + (1));
-var G__45942 = rectangles__$1;
-col = G__45941;
-rectangles__$1 = G__45942;
+var G__43748 = (col + (1));
+var G__43749 = rectangles__$1;
+col = G__43748;
+rectangles__$1 = G__43749;
 continue;
 }
 } else {
@@ -44,8 +44,8 @@ return rectangles__$1;
 break;
 }
 })());
-row = G__45937;
-rectangles = G__45938;
+row = G__43744;
+rectangles = G__43745;
 continue;
 } else {
 return rectangles;
@@ -66,7 +66,7 @@ maze_evolution.views.draw_ball = (function maze_evolution$views$draw_ball(){
 var ball_position = re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"current-position","current-position",2031348254)], null));
 return ((function (ball_position){
 return (function (){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"svg","svg",856789142),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"circle","circle",1903212362),new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"fill","fill",883462889),"coral"], null),new cljs.core.Keyword(null,"r","r",-471384190),(12),new cljs.core.Keyword(null,"id","id",-1388402092),"ball",new cljs.core.Keyword(null,"cx","cx",1272694324),((15) + ((30) * cljs.core.last.call(null,cljs.core.deref.call(null,ball_position)))),new cljs.core.Keyword(null,"cy","cy",755331060),((15) + ((30) * cljs.core.first.call(null,cljs.core.deref.call(null,ball_position))))], null)], null)], null);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"g","g",1738089905),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"svg","svg",856789142),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"circle","circle",1903212362),new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"fill","fill",883462889),"coral"], null),new cljs.core.Keyword(null,"r","r",-471384190),(12),new cljs.core.Keyword(null,"id","id",-1388402092),"ball",new cljs.core.Keyword(null,"cx","cx",1272694324),((15) + ((30) * cljs.core.last.call(null,cljs.core.deref.call(null,ball_position)))),new cljs.core.Keyword(null,"cy","cy",755331060),((15) + ((30) * cljs.core.first.call(null,cljs.core.deref.call(null,ball_position))))], null)], null)], null)], null);
 });
 ;})(ball_position))
 });
@@ -118,43 +118,43 @@ return null;
 });
 maze_evolution.views.simulation_panel = (function maze_evolution$views$simulation_panel(){
 return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.individual_and_generation_counter], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.render_maze_and_ball], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.button_group], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"pre","pre",2118456869),(function (){var sb__39915__auto__ = (new goog.string.StringBuffer());
-var _STAR_print_newline_STAR_45943_45947 = cljs.core._STAR_print_newline_STAR_;
-var _STAR_print_fn_STAR_45944_45948 = cljs.core._STAR_print_fn_STAR_;
+var _STAR_print_newline_STAR_43750_43754 = cljs.core._STAR_print_newline_STAR_;
+var _STAR_print_fn_STAR_43751_43755 = cljs.core._STAR_print_fn_STAR_;
 cljs.core._STAR_print_newline_STAR_ = true;
 
-cljs.core._STAR_print_fn_STAR_ = ((function (_STAR_print_newline_STAR_45943_45947,_STAR_print_fn_STAR_45944_45948,sb__39915__auto__){
+cljs.core._STAR_print_fn_STAR_ = ((function (_STAR_print_newline_STAR_43750_43754,_STAR_print_fn_STAR_43751_43755,sb__39915__auto__){
 return (function (x__39916__auto__){
 return sb__39915__auto__.append(x__39916__auto__);
-});})(_STAR_print_newline_STAR_45943_45947,_STAR_print_fn_STAR_45944_45948,sb__39915__auto__))
+});})(_STAR_print_newline_STAR_43750_43754,_STAR_print_fn_STAR_43751_43755,sb__39915__auto__))
 ;
 
 try{cljs.pprint.pprint.call(null,cljs.core.get_in.call(null,cljs.core.deref.call(null,re_frame.db.app_db),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"maze","maze",1753749814),new cljs.core.Keyword(null,"current-position","current-position",2031348254)], null)));
-}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR_45944_45948;
+}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR_43751_43755;
 
-cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR_45943_45947;
+cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR_43750_43754;
 }
 return [cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__39915__auto__)].join('');
 })()], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"pre","pre",2118456869),(function (){var sb__39915__auto__ = (new goog.string.StringBuffer());
-var _STAR_print_newline_STAR_45945_45949 = cljs.core._STAR_print_newline_STAR_;
-var _STAR_print_fn_STAR_45946_45950 = cljs.core._STAR_print_fn_STAR_;
+var _STAR_print_newline_STAR_43752_43756 = cljs.core._STAR_print_newline_STAR_;
+var _STAR_print_fn_STAR_43753_43757 = cljs.core._STAR_print_fn_STAR_;
 cljs.core._STAR_print_newline_STAR_ = true;
 
-cljs.core._STAR_print_fn_STAR_ = ((function (_STAR_print_newline_STAR_45945_45949,_STAR_print_fn_STAR_45946_45950,sb__39915__auto__){
+cljs.core._STAR_print_fn_STAR_ = ((function (_STAR_print_newline_STAR_43752_43756,_STAR_print_fn_STAR_43753_43757,sb__39915__auto__){
 return (function (x__39916__auto__){
 return sb__39915__auto__.append(x__39916__auto__);
-});})(_STAR_print_newline_STAR_45945_45949,_STAR_print_fn_STAR_45946_45950,sb__39915__auto__))
+});})(_STAR_print_newline_STAR_43752_43756,_STAR_print_fn_STAR_43753_43757,sb__39915__auto__))
 ;
 
 try{cljs.pprint.pprint.call(null,cljs.core.deref.call(null,re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"current-fitness","current-fitness",-374495029)], null))));
-}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR_45946_45950;
+}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR_43753_43757;
 
-cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR_45945_45949;
+cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR_43752_43756;
 }
 return [cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__39915__auto__)].join('');
 })()], null)], null);
 });
 maze_evolution.views.about_panel = (function maze_evolution$views$about_panel(){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p#about","p#about",-253228927),"Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec\n  facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.\n  Nunc porta vulputate tellus. Nunc rutrum turpis sed pede. Sed bibendum.\n  Aliquam posuere. Nunc aliquet, augue nec adipiscing interdum, lacus tellus\n  malesuada massa, quis varius mi purus non odio. Pellentesque condimentum,\n  magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque\n  sit amet urna. Curabitur vulputate vestibulum lorem. Fusce sagittis, libero\n  non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla\n  lacinia eros. Sed id ligula quis est convallis tempor. Curabitur lacinia\n  pulvinar nibh. Nam a sapien."], null);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p#about","p#about",-253228927),"Nullam eu ante vel est convallis dignissim. Fusce suscipit,\n  wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat\n  quis odio. Nunc porta vulputate tellus. Nunc rutrum turpis sed pede. Sed\n  bibendum. Aliquam posuere. Nunc aliquet, augue nec adipiscing interdum, lacus\n  tellus malesuada massa, quis varius mi purus non odio. Pellentesque\n  condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus\n  diam neque sit amet urna. Curabitur vulputate vestibulum lorem. Fusce\n  sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate\n  neque nulla lacinia eros. Sed id ligula quis est convallis tempor. Curabitur\n  lacinia pulvinar nibh. Nam a sapien."], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p#about","p#about",-253228927),"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec\n   hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl,\n   tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus\n   et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec\n   vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla.\n   Nullam rutrum. Nam vestibulum accumsan nisl."], null)], null);
 });
 maze_evolution.views.current_panel = (function maze_evolution$views$current_panel(){
 var current_tab = re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tab","tab",-559583621)], null));
@@ -182,4 +182,4 @@ maze_evolution.views.main_panel = (function maze_evolution$views$main_panel(){
 return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.title], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.tabs], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.current_panel], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [maze_evolution.views.github_badge], null)], null);
 });
 
-//# sourceMappingURL=views.js.map?rel=1518838962741
+//# sourceMappingURL=views.js.map?rel=1519394921479

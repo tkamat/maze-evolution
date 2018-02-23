@@ -129,7 +129,8 @@ goog.addDependency("../cljs/spec/gen/alpha.js", ['cljs.spec.gen.alpha'], ['cljs.
 goog.addDependency("../cljs/spec/alpha.js", ['cljs.spec.alpha'], ['cljs.core', 'goog.object', 'clojure.string', 'clojure.walk', 'cljs.spec.gen.alpha']);
 goog.addDependency("../cljs/core$macros.js", ['cljs.core$macros'], ['cljs.compiler', 'cljs.core', 'cljs.env', 'clojure.set', 'cljs.analyzer', 'clojure.string', 'clojure.walk']);
 goog.addDependency("../cljs/js.js", ['cljs.js'], ['cljs.compiler', 'cljs.tools.reader', 'cljs.core', 'goog.crypt.base64', 'cljs.tools.reader.reader_types', 'cljs.env', 'goog.string.StringBuffer', 'cljs.tagged_literals', 'cljs.analyzer', 'cljs.source_map', 'clojure.string', 'cljs.spec.alpha', 'clojure.walk', 'cljs.core$macros']);
-goog.addDependency("../maze_evolution/evolution.js", ['maze_evolution.evolution'], ['cljs.core', 'cljs.core.async', 're_frame.core']);
+goog.addDependency("../clojure/core/reducers.js", ['clojure.core.reducers'], ['cljs.core']);
+goog.addDependency("../maze_evolution/evolution.js", ['maze_evolution.evolution'], ['clojure.core.reducers', 'cljs.core', 'cljs.core.async', 're_frame.core']);
 goog.addDependency("../maze_evolution/db.js", ['maze_evolution.db'], ['cljs.core', 'maze_evolution.evolution']);
 goog.addDependency("../maze_evolution/events.js", ['maze_evolution.events'], ['cljs.core', 'maze_evolution.db', 'maze_evolution.evolution', 'clojure.string', 're_frame.core']);
 goog.addDependency("../maze_evolution/subs.js", ['maze_evolution.subs'], ['cljs.core', 're_frame.core']);
