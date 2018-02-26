@@ -93,3 +93,16 @@
    (update-in db [:tab]
               (fn [old-tab]
                 new-tab))))
+(re-frame/reg-event-db
+ :set-generations-to-run
+ (fn [db [_ new-generations-to-run]]
+   (update-in db [:evolution :generations-to-run]
+              (fn [old-num]
+                new-generations-to-run))))
+
+(re-frame/reg-event-db
+ :set-max-fitness-list
+ (fn [db [_ new-max-fitness-list]]
+   (update-in db [:evolution :max-fitness-list]
+              (fn [old-list]
+                new-max-fitness-list))))

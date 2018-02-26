@@ -1,6 +1,7 @@
 (ns ^:figwheel-always maze-evolution.views
   (:require [reagent.core :as reagent]
             [re-frame.core :as re-frame]
+            [clojure.string :as string]
             [cljs.js]
             [cljs.pprint :refer [pprint]]
             [cljs.core.async :refer [<! timeout]]
@@ -60,7 +61,7 @@
 (defn render-maze-and-ball []
   (conj ((draw-maze)) ((draw-ball))))
 (def running (atom false))
-(defn test-button []
+(defn population-test-button []
   (fn []
     [:button {:on-click (fn [] (if (false? @running)
                                 (evolution/test-population running)))}
@@ -73,10 +74,38 @@
   (fn []
     [:button {:on-click #(evolution/continuously-evolve running)}
      "Continuously evolve"]))
+
+(defn headless-evolve-button []
+  (fn []
+    [:button#headless-evolve {:on-click #(re-frame/dispatch [:set-max-fitness-list
+                                                             (evolution/headless-evolution-test-and-get-maximum-fitness
+                                                              @(re-frame/subscribe [:maze-map])
+                                                              @(re-frame/subscribe [:fitness-map])
+                                                              @(re-frame/subscribe [:generations-to-run]))])}
+     "Run Evolution Without Display"]))
+
+(defn input-box []
+  (let [generations-to-run (re-frame/subscribe [:generations-to-run])]
+    (fn []
+      [:input#input-box {:type "number"
+                         :value @generations-to-run
+                         :on-change #((re-frame/dispatch [:set-generations-to-run
+                                                          (-> % .-target .-value)]))}])))
+(defn button-and-input []
+  [:div {:class "button-and-input"}
+   "# of Generations: "
+   [input-box]
+   [headless-evolve-button]])
+
+(defn max-fitness-list []
+  (let [fitness-list (re-frame/subscribe [:max-fitness-list])]
+    (fn []
+      [:p#fitness-list (string/join ", " @fitness-list)])))
+
 (defn button-group []
   (fn []
     [:div {:class "button-group"}
-     [test-button]
+     [population-test-button]
      [new-generation-button]
      [continuously-evolve-button]]))
 
@@ -93,13 +122,8 @@
    [individual-and-generation-counter]
    [render-maze-and-ball]
    [button-group]
-   [:pre (-> @re-frame.db/app-db
-             (get-in [:maze :current-position])
-             pprint
-             with-out-str)]
-   [:pre (-> @(re-frame/subscribe [:current-fitness])
-             pprint
-             with-out-str)]])
+   [button-and-input]
+   [max-fitness-list]])
 (defn about-panel
   []
   [:div [:p#about "Nullam eu ante vel est convallis dignissim. Fusce suscipit,

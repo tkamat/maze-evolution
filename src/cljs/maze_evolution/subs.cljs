@@ -49,3 +49,11 @@
  :tab
  (fn [db]
    (get-in db [:tab])))
+(re-frame/reg-sub
+ :generations-to-run
+ (fn [db]
+   (get-in db [:evolution :generations-to-run])))
+(re-frame/reg-sub
+ :max-fitness-list
+ (fn [db]
+   (get-in db [:evolution :max-fitness-list])))

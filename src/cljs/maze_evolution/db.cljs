@@ -7,7 +7,9 @@
    :evolution {:population initial-population
                :generation "Generation 1"
                :individual "Individual 1"
-               :fitness-list []}
+               :fitness-list []
+               :max-fitness-list []
+               :generations-to-run ""}
    :maze {:map [[1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
                 [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1]
                 [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1]

@@ -23,21 +23,28 @@
                    [re-frisk "0.5.3"]
                    ]
     :plugins      [[lein-figwheel "0.5.14"]]
-    :cljsbuild {:builds [{:compiler {
-                                    :optimizations        :none
-                                    :source-map           true
-                                    :output-to            "resources/public/js/compiled/app.js"
-                                    :output-dir           "resources/public/js/compiled/out"
-                                    :asset-path           "js/compiled/out"
+    :cljsbuild {:builds [{:id "dev"
+                          :compiler {
+                                     :optimizations        :none
+                                     :source-map           true
+                                     :output-to            "resources/public/js/compiled/app.js"
+                                     :output-dir           "resources/public/js/compiled/out"
+                                     :asset-path           "js/compiled/out"
                                      :preloads             [devtools.preload
                                                             re-frisk.preload]
-                                    :external-config      {:devtools/config {:features-to-install :all}}
-                                    :source-map-timestamp true
-                                    :main                 "maze-evolution.core"}
-                         :figwheel {:on-jsload "maze-evolution.core/main"}
-                         :source-paths ["src/cljs" "src/clj"]
-                         :id "dev"
-                         }]}}}
+                                     :external-config      {:devtools/config {:features-to-install :all}}
+                                     :source-map-timestamp true
+                                     :main                 maze-evolution.core}
+                          :figwheel {:on-jsload "maze-evolution.core/main"}
+                          :source-paths ["src/cljs" "src/clj"]}
+                         {:id "min"
+                          :compiler {:main maze-evolution.core
+                                     :optimizations :advanced
+                                     :pretty-print false
+                                     :output-to "resources/public/js/compiled/app.js"
+                                     :closure-defines {goog.DEBUG false}}
+                          :source-paths ["src/cljs" "src/clj"]}]}}}
+
 
   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
   :figwheel {:server-port 3449
