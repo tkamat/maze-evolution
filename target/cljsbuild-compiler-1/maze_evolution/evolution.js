@@ -687,7 +687,7 @@ return setTimeout(G__27328,G__27329);
  *   Returns a list containing the maximum fitness for every generation
  */
 maze_evolution.evolution.headless_evolution_test_and_get_maximum_fitness = (function maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness(maze,fitness_map,n){
-var i = (1);
+var i = (0);
 var population = maze_evolution.evolution.create_initial_population();
 var max_fitness_list = cljs.core.PersistentVector.EMPTY;
 while(true){

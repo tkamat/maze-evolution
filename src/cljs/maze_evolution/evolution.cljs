@@ -165,7 +165,7 @@
   "Creates an initial population and tests it n times without a user interface.
   Returns a list containing the maximum fitness for every generation"
   [maze fitness-map n]
-  (loop [i 1
+  (loop [i 0
          population (create-initial-population)
          max-fitness-list []]
     (let [fitness-list (->> population
