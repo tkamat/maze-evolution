@@ -62,6 +62,34 @@ h3 {
     float: center;
 }
 
+.button-and-input {
+    position: relative;
+    top: 50px;
+    left: 10%;
+}
+
+.button-and-input button {
+    background-color: coral;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 10px 24px;
+    margin: 10px;
+    margin-top: 20px;
+    float: center;
+}
+
+.button-and-input input {
+    padding: 10px 24px;
+}
+
+#fitness-list {
+    position: relative;
+    top: 70px;
+    padding: 36px 36px;
+}
+
 
 .button-group button:hover {
     background-color: tomato;
