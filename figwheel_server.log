@@ -7346,3 +7346,16 @@ notifying browser that file changed:  resources/public/js/compiled/out/maze_evol
 [0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
 [32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.045 seconds.[0m
 notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[31mFailed to compile "resources/public/js/compiled/app.js" in 30.986 seconds.[0m
+[36m----  Could not Compile  resources/public/js/compiled/out/re_com/datepicker.cljs  ----[0m
+
+  [1mfailed compiling file:resources/public/js/compiled/out/re_com/datepicker.cljs[0m
+
+[36m----  Compiler Error : Please see resources/public/js/compiled/out/re_com/datepicker.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 66.503 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.225 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js

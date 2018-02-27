@@ -6,8 +6,8 @@ goog.require('cljs.core.async');
 goog.require('re_frame.core');
 goog.require('clojure.core.reducers');
 maze_evolution.evolution.population_size = (64);
-maze_evolution.evolution.move_time = (1);
-maze_evolution.evolution.individual_time = ((50) + ((64) * maze_evolution.evolution.move_time));
+maze_evolution.evolution.move_time = (3);
+maze_evolution.evolution.individual_time = ((300) + ((64) * maze_evolution.evolution.move_time));
 maze_evolution.evolution.generation_time = (maze_evolution.evolution.individual_time * maze_evolution.evolution.population_size);
 /**
  * Generates a random move between :N, :S, :E, and :W

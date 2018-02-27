@@ -7,8 +7,8 @@
    [re-frame.core :as re-frame]))
 
 (def population-size 64)
-(def move-time 1)
-(def individual-time (+ 50 (* 64 move-time)))
+(def move-time 3)
+(def individual-time (+ 300 (* 64 move-time)))
 (def generation-time (* individual-time population-size))
 
 (defn random-move
