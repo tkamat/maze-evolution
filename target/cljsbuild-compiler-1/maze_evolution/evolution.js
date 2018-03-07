@@ -3,9 +3,9 @@ goog.provide('maze_evolution.evolution');
 goog.require('cljs.core');
 goog.require('cljs.core.constants');
 goog.require('cljs.core.async');
-goog.require('re_frame.core');
 goog.require('clojure.core.reducers');
-maze_evolution.evolution.population_size = (64);
+goog.require('re_frame.core');
+maze_evolution.evolution.population_size = (100);
 maze_evolution.evolution.move_time = (3);
 maze_evolution.evolution.individual_time = ((300) + ((64) * maze_evolution.evolution.move_time));
 maze_evolution.evolution.generation_time = (maze_evolution.evolution.individual_time * maze_evolution.evolution.population_size);
@@ -593,25 +593,14 @@ return cljs.core.cst$kw$fitness.cljs$core$IFn$_invoke$arity$1(p1__27312_SHARP_);
 }),population)));
 });
 /**
- * Uses crossing over and mutation to create an offspring from two parents
+ * Combines two parent sequences by selecting a random point, splicing each parent
+ *   sequence at that point, and combining them to form a new sequence.
  */
-maze_evolution.evolution.have_child = (function maze_evolution$evolution$have_child(breeding_pair){
-var move_sequences = cljs.core.shuffle(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__27313_SHARP_){
-return cljs.core.cst$kw$move_DASH_sequence.cljs$core$IFn$_invoke$arity$1(p1__27313_SHARP_);
-}),breeding_pair));
-var baby_sequence = cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(((function (move_sequences){
-return (function (new_baby_sequence,baby_move){
-if((cljs.core.rand.cljs$core$IFn$_invoke$arity$0() < ((1) / (64)))){
-return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(new_baby_sequence,maze_evolution.evolution.random_move());
-} else {
-return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(new_baby_sequence,baby_move);
-}
-});})(move_sequences))
-,cljs.core.PersistentVector.EMPTY,cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(((function (move_sequences){
-return (function (baby_sequence,parent_move){
+maze_evolution.evolution.cross_over = (function maze_evolution$evolution$cross_over(parent_sequences){
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (baby_sequence,parent_move){
 var sequence_not_full = (cljs.core.count(baby_sequence) < (64));
 if((sequence_not_full) && ((cljs.core.rand.cljs$core$IFn$_invoke$arity$0() < ((1) / (32))))){
-return cljs.core.concat.cljs$core$IFn$_invoke$arity$2(baby_sequence,cljs.core.take_last(((64) - cljs.core.count(baby_sequence)),cljs.core.second(move_sequences)));
+return cljs.core.concat.cljs$core$IFn$_invoke$arity$2(baby_sequence,cljs.core.take_last(((64) - cljs.core.count(baby_sequence)),cljs.core.second(parent_sequences)));
 } else {
 if(sequence_not_full){
 return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(baby_sequence,parent_move);
@@ -620,8 +609,28 @@ return baby_sequence;
 
 }
 }
-});})(move_sequences))
-,cljs.core.PersistentVector.EMPTY,cljs.core.first(move_sequences)));
+}),cljs.core.PersistentVector.EMPTY,cljs.core.first(parent_sequences));
+});
+/**
+ * Loops through a move sequence and mutates points randomly, with the rate of
+ *   mutation per move being 1/64
+ */
+maze_evolution.evolution.mutate = (function maze_evolution$evolution$mutate(move_sequence){
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (new_baby_sequence,baby_move){
+if((cljs.core.rand.cljs$core$IFn$_invoke$arity$0() < ((1) / (64)))){
+return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(new_baby_sequence,maze_evolution.evolution.random_move());
+} else {
+return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(new_baby_sequence,baby_move);
+}
+}),cljs.core.PersistentVector.EMPTY,move_sequence);
+});
+/**
+ * Uses crossing over and mutation to create an offspring from two parents
+ */
+maze_evolution.evolution.have_child = (function maze_evolution$evolution$have_child(breeding_pair){
+var baby_sequence = maze_evolution.evolution.mutate(maze_evolution.evolution.cross_over(cljs.core.shuffle(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__27313_SHARP_){
+return cljs.core.cst$kw$move_DASH_sequence.cljs$core$IFn$_invoke$arity$1(p1__27313_SHARP_);
+}),breeding_pair))));
 return new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$id,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.gensym.cljs$core$IFn$_invoke$arity$1("individual"))].join(''),cljs.core.cst$kw$move_DASH_sequence,baby_sequence,cljs.core.cst$kw$fitness,(0)], null);
 });
 /**
@@ -683,46 +692,73 @@ var G__27329 = (maze_evolution.evolution.generation_time + (5000));
 return setTimeout(G__27328,G__27329);
 });
 /**
- * Creates an initial population and tests it n times without a user interface.
- *   Returns a list containing the maximum fitness for every generation
+ * Tests population, sorts by fitness, breeds them, and evolves without the visual
+ *   interface. Takes a maze vector, a map of the possible fitness values, and n,
+ *   the number of generations to evolve. Returns a list of the maximum fitness
+ *   values for each generation
  */
 maze_evolution.evolution.headless_evolution_test_and_get_maximum_fitness = (function maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness(maze,fitness_map,n){
 var i = (0);
 var population = maze_evolution.evolution.create_initial_population();
 var max_fitness_list = cljs.core.PersistentVector.EMPTY;
 while(true){
-var fitness_list = cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(((function (i,population,max_fitness_list){
-return (function (fitness_list,position){
+var fitness_list = clojure.core.reducers.fold.cljs$core$IFn$_invoke$arity$4((50),((function (i,population,max_fitness_list){
+return (function() { 
+var maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate = function (args){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.concat,args));
+};
+var maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef = function (var_args){
+var args = null;
+if (arguments.length > 0) {
+var G__27332__i = 0, G__27332__a = new Array(arguments.length -  0);
+while (G__27332__i < G__27332__a.length) {G__27332__a[G__27332__i] = arguments[G__27332__i + 0]; ++G__27332__i;}
+  args = new cljs.core.IndexedSeq(G__27332__a,0,null);
+} 
+return maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate.call(this,args);};
+maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef.cljs$lang$maxFixedArity = 0;
+maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef.cljs$lang$applyTo = (function (arglist__27333){
+var args = cljs.core.seq(arglist__27333);
+return maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate(args);
+});
+maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef.cljs$core$IFn$_invoke$arity$variadic = maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate;
+return maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef;
+})()
+;})(i,population,max_fitness_list))
+,((function (i,population,max_fitness_list){
+return (function maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_reducef(fitness_list,position){
 return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(fitness_list,cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(fitness_map,position));
 });})(i,population,max_fitness_list))
-,cljs.core.PersistentVector.EMPTY,clojure.core.reducers.fold.cljs$core$IFn$_invoke$arity$2(((function (i,population,max_fitness_list){
-return (function() {
-var G__27332 = null;
-var G__27332__0 = (function (){
-return cljs.core.PersistentVector.EMPTY;
+,clojure.core.reducers.fold.cljs$core$IFn$_invoke$arity$4((50),((function (i,population,max_fitness_list){
+return (function() { 
+var maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate = function (args){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.concat,args));
+};
+var maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef = function (var_args){
+var args = null;
+if (arguments.length > 0) {
+var G__27334__i = 0, G__27334__a = new Array(arguments.length -  0);
+while (G__27334__i < G__27334__a.length) {G__27334__a[G__27334__i] = arguments[G__27334__i + 0]; ++G__27334__i;}
+  args = new cljs.core.IndexedSeq(G__27334__a,0,null);
+} 
+return maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate.call(this,args);};
+maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef.cljs$lang$maxFixedArity = 0;
+maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef.cljs$lang$applyTo = (function (arglist__27335){
+var args = cljs.core.seq(arglist__27335);
+return maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate(args);
 });
-var G__27332__2 = (function (position_list,individual){
+maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef.cljs$core$IFn$_invoke$arity$variadic = maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef__delegate;
+return maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_combinef;
+})()
+;})(i,population,max_fitness_list))
+,((function (i,population,max_fitness_list){
+return (function maze_evolution$evolution$headless_evolution_test_and_get_maximum_fitness_$_reducef(position_list,individual){
 return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(position_list,cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(((function (i,population,max_fitness_list){
 return (function (position,direction){
 return maze_evolution.evolution.move_if_eligible(direction,maze,position);
 });})(i,population,max_fitness_list))
 ,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),(1)], null),individual));
-});
-G__27332 = function(position_list,individual){
-switch(arguments.length){
-case 0:
-return G__27332__0.call(this);
-case 2:
-return G__27332__2.call(this,position_list,individual);
-}
-throw(new Error('Invalid arity: ' + (arguments.length - 1)));
-};
-G__27332.cljs$core$IFn$_invoke$arity$0 = G__27332__0;
-G__27332.cljs$core$IFn$_invoke$arity$2 = G__27332__2;
-return G__27332;
-})()
-;})(i,population,max_fitness_list))
-,cljs.core.map.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$move_DASH_sequence,population)));
+});})(i,population,max_fitness_list))
+,cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,clojure.core.reducers.map.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$move_DASH_sequence,population))));
 var new_population = maze_evolution.evolution.pair_and_reproduce(cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (i,population,max_fitness_list,fitness_list){
 return (function (i__$1){
 return cljs.core.update.cljs$core$IFn$_invoke$arity$3(cljs.core.nth.cljs$core$IFn$_invoke$arity$2(population,i__$1),cljs.core.cst$kw$fitness,((function (i,population,max_fitness_list,fitness_list){
@@ -735,12 +771,12 @@ return cljs.core.nth.cljs$core$IFn$_invoke$arity$2(fitness_list,i__$1);
 if((i >= n)){
 return max_fitness_list;
 } else {
-var G__27333 = (i + (1));
-var G__27334 = new_population;
-var G__27335 = cljs.core.conj.cljs$core$IFn$_invoke$arity$2(max_fitness_list,cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,fitness_list));
-i = G__27333;
-population = G__27334;
-max_fitness_list = G__27335;
+var G__27336 = (i + (1));
+var G__27337 = new_population;
+var G__27338 = cljs.core.conj.cljs$core$IFn$_invoke$arity$2(max_fitness_list,cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,fitness_list));
+i = G__27336;
+population = G__27337;
+max_fitness_list = G__27338;
 continue;
 }
 break;

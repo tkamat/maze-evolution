@@ -19,8 +19,8 @@ return null;
 maze_evolution.core.main = (function maze_evolution$core$main(){
 if(typeof maze_evolution.core.db !== 'undefined'){
 } else {
-maze_evolution.core.db = (function (){var G__28900 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
-return (re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__28900) : re_frame.core.dispatch_sync.call(null,G__28900));
+maze_evolution.core.db = (function (){var G__28903 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
+return (re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__28903) : re_frame.core.dispatch_sync.call(null,G__28903));
 })();
 }
 

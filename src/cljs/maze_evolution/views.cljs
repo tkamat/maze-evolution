@@ -172,5 +172,4 @@
    [title]
    [tabs]
    [current-panel]
-   [github-badge]
-   ])
+   [github-badge]])

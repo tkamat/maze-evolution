@@ -8,7 +8,7 @@
 
   :min-lein-version "2.5.3"
 
-  :jvm-opts ["--add-modules" "java.xml.bind"]
+  ;; :jvm-opts ["--add-modules" "java.xml.bind"]
 
   :source-paths ["src/cljs" "src/clj"]
 
@@ -20,8 +20,7 @@
                    [binaryage/devtools "0.9.4"]
                    [org.clojure/tools.nrepl "0.2.10"]
                    [com.cemerick/piggieback "0.2.2"]
-                   [re-frisk "0.5.3"]
-                   ]
+                   [re-frisk "0.5.3"]]
     :plugins      [[lein-figwheel "0.5.14"]]
     :cljsbuild {:builds [{:id "dev"
                           :compiler {
