@@ -1,15 +1,18 @@
 (ns maze-evolution.evolution
   (:require [cljs.core.async :refer [<! timeout]]
+
             [clojure.core.reducers :as reducers]
             [re-frame.core :as re-frame])
   (:require-macros
    [cljs.core.async.macros :refer [go-loop]]
    [re-frame.core :as re-frame]))
 
-(def population-size 100)
-(def move-time 3)
-(def individual-time (+ 300 (* 64 move-time)))
+(def population-size 64)
+(def move-time 2)
+(def individual-time (+ 100 (* 64 move-time)))
 (def generation-time (* individual-time population-size))
+(def crossing-over-chance (/ 1 20))
+(def mutation-chance (/ 1 64))
 
 (defn random-move
   "Generates a random move between :N, :S, :E, and :W"
@@ -74,11 +77,13 @@
   (for [_ (range 0 64)]
     (random-move)
     ))
+
 (defn create-initial-population
   "Creates a sequence of randomly generated individuals representing the original population"
   []
   (for [x (range 0 population-size)]
     {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0}))
+
 (defn test-individual
   "Tests an individual through the maze using its move sequence"
   [move-sequence id]
@@ -89,6 +94,7 @@
       (<! (timeout move-time))
       (recur (rest move-sequence)))
     (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])))
+
 (defn test-population
   "Tests the entire population by looping through and testing each individual"
   [running]
@@ -100,6 +106,7 @@
       (<! (timeout individual-time))
       (re-frame/dispatch [:next-individual])
       (recur (rest population)))))
+
 (defn sort-and-prune-population
   "Kills the bottom half of the population and sorts the remaining individuals by
   fitness"
@@ -110,27 +117,26 @@
   "Combines two parent sequences by selecting a random point, splicing each parent
   sequence at that point, and combining them to form a new sequence."
   [parent-sequences]
-  (reduce
-   (fn [baby-sequence parent-move]
-     (let [sequence-not-full (< (count baby-sequence) 64)]
-       (cond
-         (and sequence-not-full (< (rand) (/ 1 32)))
-         (concat baby-sequence (take-last
-                                (- 64 (count baby-sequence))
-                                (second parent-sequences)))
-         sequence-not-full
-         (conj baby-sequence parent-move)
-         :else
-         baby-sequence)))
-   []
-   (first parent-sequences)))
+  (let [length (count (first parent-sequences))]
+    (reduce
+     (fn [baby-sequence parent-move]
+       (if (< (rand) crossing-over-chance)
+         (reduced (concat baby-sequence (cross-over [(take-last
+                                                      (- length (count baby-sequence))
+                                                      (second parent-sequences))
+                                                     (take-last
+                                                      (- length (count baby-sequence))
+                                                      (first parent-sequences))])))
+         (conj baby-sequence parent-move)))
+     []
+     (first parent-sequences))))
 
 (defn mutate
   "Loops through a move sequence and mutates points randomly, with the rate of
   mutation per move being 1/64"
   [move-sequence]
   (reduce (fn [new-baby-sequence baby-move]
-            (if (< (rand) (/ 1 64))
+            (if (< (rand) mutation-chance)
               (conj new-baby-sequence (random-move))
               (conj new-baby-sequence baby-move)))
           []
@@ -155,6 +161,7 @@
        (concat new-generation breeding-pair (map have-child (repeat 2 breeding-pair))))
      []
      (partition 2 (shuffle parents)))))
+
 (defn create-new-generation
   "Creates a new population and updates state"
   [running]
@@ -177,7 +184,6 @@
                    (js/setTimeout #(continuously-evolve running) 500))
                  (+ generation-time 5000)))
 
-
 (defn headless-evolution-test-and-get-maximum-fitness
   "Tests population, sorts by fitness, breeds them, and evolves without the visual
   interface. Takes a maze vector, a map of the possible fitness values, and n,
@@ -191,7 +197,7 @@
                             (reducers/map :move-sequence)
                             (into [])
                             (reducers/fold
-                             50
+                             10
                              (fn combinef [& args] (into [] (apply concat args)))
                              (fn reducef [position-list individual]
                                (conj position-list
@@ -201,7 +207,7 @@
                                       [0 1]
                                       individual))))
                             (reducers/fold
-                             50
+                             10
                              (fn combinef [& args] (into [] (apply concat args)))
                              (fn reducef [fitness-list position]
                                (conj fitness-list
@@ -216,3 +222,4 @@
         (recur (inc i)
                new-population
                (conj  max-fitness-list (apply max fitness-list)))))))
+

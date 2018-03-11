@@ -126,16 +126,12 @@
    [max-fitness-list]])
 (defn about-panel
   []
-  [:div [:p#about "Nullam eu ante vel est convallis dignissim. Fusce suscipit,
-  wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat
-  quis odio. Nunc porta vulputate tellus. Nunc rutrum turpis sed pede. Sed
-  bibendum. Aliquam posuere. Nunc aliquet, augue nec adipiscing interdum, lacus
-  tellus malesuada massa, quis varius mi purus non odio. Pellentesque
-  condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus
-  diam neque sit amet urna. Curabitur vulputate vestibulum lorem. Fusce
-  sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate
-  neque nulla lacinia eros. Sed id ligula quis est convallis tempor. Curabitur
-  lacinia pulvinar nibh. Nam a sapien."]
+  [:div [:p#about "This website attempts to evolve solutions to a simple maze,
+  using genetic algorithms. Originally proposed by John H. Holland, genetic
+  algorithms apply the theories of evolution and natural selection to computer
+  programs. This simulation (access by clicking the \"simulation\" tab at the
+  top) initializes the \"population\" by generating a random series of moves.
+  After this, clicking the \"test population\" button will run the simulation, running each sequence of moves to "]
    [:p#about "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
    hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl,
    tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus
