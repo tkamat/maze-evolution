@@ -9,8 +9,8 @@ if(cljs.core.vector_QMARK_(form)){
 throw (new Error("Queue literal expects a vector for its elements."));
 }
 
-return cljs.core._conj(cljs.core._conj((function (){var x__9342__auto__ = form;
-return cljs.core._conj(cljs.core.List.EMPTY,x__9342__auto__);
+return cljs.core._conj(cljs.core._conj((function (){var x__8530__auto__ = form;
+return cljs.core._conj(cljs.core.List.EMPTY,x__8530__auto__);
 })(),cljs.core.cst$sym$cljs$core$PersistentQueue$EMPTY),cljs.core.cst$sym$cljs$core_SLASH_into);
 });
 cljs.tagged_literals.read_uuid = (function cljs$tagged_literals$read_uuid(form){
@@ -20,7 +20,7 @@ throw (new Error("UUID literal expects a string as its representation."));
 }
 
 try{return cljs.core.uuid(form);
-}catch (e15120){var e = e15120;
+}catch (e14276){var e = e14276;
 throw (new Error(e.message));
 }});
 cljs.tagged_literals.read_inst = (function cljs$tagged_literals$read_inst(form){
@@ -30,7 +30,7 @@ throw (new Error("Instance literal expects a string for its timestamp."));
 }
 
 try{return cljs.reader.read_date(form);
-}catch (e15121){var e = e15121;
+}catch (e14277){var e = e14277;
 throw (new Error(e.message));
 }});
 cljs.tagged_literals.valid_js_literal_key_QMARK_ = (function cljs$tagged_literals$valid_js_literal_key_QMARK_(k){
@@ -52,8 +52,8 @@ cljs.tagged_literals.JSValue.cljs$lang$type = true;
 
 cljs.tagged_literals.JSValue.cljs$lang$ctorStr = "cljs.tagged-literals/JSValue";
 
-cljs.tagged_literals.JSValue.cljs$lang$ctorPrWriter = (function (this__9059__auto__,writer__9060__auto__,opt__9061__auto__){
-return cljs.core._write(writer__9060__auto__,"cljs.tagged-literals/JSValue");
+cljs.tagged_literals.JSValue.cljs$lang$ctorPrWriter = (function (this__8293__auto__,writer__8294__auto__,opt__8295__auto__){
+return cljs.core._write(writer__8294__auto__,"cljs.tagged-literals/JSValue");
 });
 
 cljs.tagged_literals.__GT_JSValue = (function cljs$tagged_literals$__GT_JSValue(val){
