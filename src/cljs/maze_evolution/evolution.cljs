@@ -79,10 +79,12 @@
     ))
 
 (defn create-initial-population
-  "Creates a sequence of randomly generated individuals representing the original population"
+  "Creates a sequence of randomly generated individuals representing the original
+  population"
   []
   (for [x (range 0 population-size)]
-    {:id (str (gensym "individual")) :move-sequence (create-initial-individual) :fitness 0}))
+    {:id (str (gensym "individual"))
+     :move-sequence (create-initial-individual) :fitness 0}))
 
 (defn test-individual
   "Tests an individual through the maze using its move sequence"
@@ -93,7 +95,8 @@
       (re-frame/dispatch [:move-ball current-move])
       (<! (timeout move-time))
       (recur (rest move-sequence)))
-    (re-frame/dispatch [:update-fitness [id @(re-frame/subscribe [:current-fitness])]])))
+    (re-frame/dispatch [:update-fitness
+                        [id @(re-frame/subscribe [:current-fitness])]])))
 
 (defn test-population
   "Tests the entire population by looping through and testing each individual"
@@ -170,7 +173,8 @@
     (re-frame/dispatch [:update-population new-population])
     (re-frame/dispatch [:next-generation])
     (re-frame/dispatch [:reset-individual])
-    (re-frame/dispatch [:set-new-move-sequence (:move-sequence (first new-population))])
+    (re-frame/dispatch [:set-new-move-sequence
+                        (:move-sequence (first new-population))])
     (re-frame/dispatch [:set-new-unique-id (:id (first new-population))])
     (re-frame/dispatch [:reset-position [0 1]]))
   (reset! running false))
