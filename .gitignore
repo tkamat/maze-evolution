@@ -2,3 +2,5 @@ target/
 .lein-repl-history 
 .projectile
 figwheel_server.log
+/.nrepl-port
+/resources/public/js/compiled/out/ 
