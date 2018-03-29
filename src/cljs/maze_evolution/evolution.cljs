@@ -7,12 +7,13 @@
    [cljs.core.async.macros :refer [go-loop]]
    [re-frame.core :as re-frame]))
 
+(def num-of-moves 100)
 (def population-size 64)
 (def move-time 2)
-(def individual-time (+ 100 (* 64 move-time)))
+(def individual-time (+ 100 (* num-of-moves move-time)))
 (def generation-time (* individual-time population-size))
-(def crossing-over-chance (/ 1 20))
-(def mutation-chance (/ 1 64))
+(def crossing-over-chance (/ 1 33))
+(def mutation-chance (/ 1 num-of-moves))
 
 (defn random-move
   "Generates a random move between :N, :S, :E, and :W"
@@ -74,7 +75,7 @@
 (defn create-initial-individual
   "Creates a sequence of random moves representing an initial individual"
   []
-  (for [_ (range 0 64)]
+  (for [_ (range 0 num-of-moves)]
     (random-move)
     ))
 
@@ -136,7 +137,7 @@
 
 (defn mutate
   "Loops through a move sequence and mutates points randomly, with the rate of
-  mutation per move being 1/64"
+  mutation per move being the mutation chance variable"
   [move-sequence]
   (reduce (fn [new-baby-sequence baby-move]
             (if (< (rand) mutation-chance)

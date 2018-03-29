@@ -8445,3 +8445,26 @@ notifying browser that file changed:  resources/public/js/compiled/out/maze_evol
 notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
 notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
 notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.291 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.443 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.501 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.577 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.582 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 2.665 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
+[0mCompiling "resources/public/js/compiled/app.js" from ["src/cljs" "src/clj"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/app.js" in 1.327 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/maze_evolution/evolution.js
