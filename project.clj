@@ -41,6 +41,7 @@
                                      :optimizations :advanced
                                      :pretty-print false
                                      :output-to "resources/public/js/compiled/app.js"
+                                     :asset-path "js/compiled/out"
                                      :closure-defines {goog.DEBUG false}}
                           :source-paths ["src/cljs" "src/clj"]}]}}}
 
