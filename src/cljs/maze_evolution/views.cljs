@@ -81,11 +81,11 @@
 (defn quick-evolve-button []
   (fn []
     [:button#quick-evolve {:on-click #(re-frame/dispatch [:set-max-fitness-list
-                                                             (evolution/quick-evolve
-                                                              @(re-frame/subscribe [:maze-map])
-                                                              @(re-frame/subscribe [:fitness-map])
-                                                              @(re-frame/subscribe [:generations-to-run]))])}
-     "Run Evolution Without Display"]))
+                                                          (evolution/quick-evolve
+                                                           @(re-frame/subscribe [:maze-map])
+                                                           @(re-frame/subscribe [:fitness-map])
+                                                           @(re-frame/subscribe [:generations-to-run]))])}
+     "Quick Evolve"]))
 
 (defn input-box []
   (let [generations-to-run (re-frame/subscribe [:generations-to-run])]
@@ -133,14 +133,29 @@
   using genetic algorithms. Originally proposed by John H. Holland, genetic
   algorithms apply the theories of evolution and natural selection to computer
   programs. This simulation (access by clicking the \"simulation\" tab at the
-  top) initializes the \"population\" by generating a random series of moves.
-  After this, clicking the \"test population\" button will run the simulation, running each sequence of moves to "]
-   [:p#about "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-   hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl,
-   tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus
-   et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec
-   vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla.
-   Nullam rutrum. Nam vestibulum accumsan nisl." ]])
+  top) initializes the \"population\" by generating a random series of moves for
+  each individual, either North, West, East, or South. After this, clicking the
+  \"test population\" button will run the simulation, running each sequence of
+  moves through the \"fitness\", which is a measurement of how far the
+  individual gets. After the generation finishes, click the \"New Generation\"
+  button to initiate the breeding and reproduction process. In this process, the
+  individuals with the lowest fitness are removed from the simulation, and the
+  individuals with the highest fitness are preserved to the next generation.
+  Furthermore, the individuals with the highest fitness use crossing-over and
+  mutation to create offspring, which are a mix of the two parent individuals'
+  move sequences. These offspring join the next generation, and the simulation
+  can now be run again using the \"Test Population\" button. This evolution
+  process continues indefinitely until a solution is found, and it can be run
+  automatically by just clicking the \"Continuously Evolve\" button."]
+
+   [:p#about "In addition to the main simulation, this website also provides a
+   \"Quick Evolution\" option. To access this, click the simulation tab, and
+   scroll down to the text box labeled \"# of Generations.\" In this text box,
+   enter the number of generations you want to evolve, and click the \"Quick
+   Evolve\" button. This will quickly run the simulation without actually
+   displaying the process in the maze. Once it is finished, a list of the
+   maximum fitness for each generation will be displayed below at the bottom of
+   the screen." ]])
 
 (defn current-panel
   []

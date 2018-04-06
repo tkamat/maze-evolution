@@ -44,7 +44,6 @@
                                      :closure-defines {goog.DEBUG false}}
                           :source-paths ["src/cljs" "src/clj"]}]}}}
 
-
   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
   :figwheel {:server-port 3449
              :repl        true
