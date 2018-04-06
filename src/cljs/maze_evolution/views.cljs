@@ -21,14 +21,14 @@
   []
   [:div [:h3 @(re-frame/subscribe [:generation])]
    [:h3 @(re-frame/subscribe [:individual])]])
+
 (defn create-rectangles [maze]
-  (apply concat (loop [row 0
-                       rectangles []]
+  (apply concat (loop [row 0 rectangles []]
                   (if (< row 11)
                     (recur (inc row)
                            (conj rectangles (loop [col 0 rectangles []]
                                               (if (< col 21)
-                                                (if (= 1 (nth (nth maze row) col))
+                                                (if (= 1 (get-in maze [row col]))
                                                   (recur
                                                    (inc col)
                                                    (conj rectangles
@@ -36,6 +36,7 @@
                                                   (recur (inc col) rectangles))
                                                 rectangles))))
                     rectangles))))
+
 (defn draw-maze
   []
   (let [maze (re-frame/subscribe [:maze-map])]
@@ -45,6 +46,7 @@
             create-rectangles
             (cons :g)
             vec)])))
+
 (defn draw-ball
   []
   (let [ball-position (re-frame/subscribe [:current-position])]
@@ -58,6 +60,7 @@
                                    first
                                    (* 30)
                                    (+ 15))}]]])))
+
 (defn render-maze-and-ball []
   (conj ((draw-maze)) ((draw-ball))))
 (def running (atom false))
@@ -75,10 +78,10 @@
     [:button {:on-click #(evolution/continuously-evolve running)}
      "Continuously evolve"]))
 
-(defn headless-evolve-button []
+(defn quick-evolve-button []
   (fn []
-    [:button#headless-evolve {:on-click #(re-frame/dispatch [:set-max-fitness-list
-                                                             (evolution/headless-evolution-test-and-get-maximum-fitness
+    [:button#quick-evolve {:on-click #(re-frame/dispatch [:set-max-fitness-list
+                                                             (evolution/quick-evolve
                                                               @(re-frame/subscribe [:maze-map])
                                                               @(re-frame/subscribe [:fitness-map])
                                                               @(re-frame/subscribe [:generations-to-run]))])}
@@ -95,7 +98,7 @@
   [:div {:class "button-and-input"}
    "# of Generations: "
    [input-box]
-   [headless-evolve-button]])
+   [quick-evolve-button]])
 
 (defn max-fitness-list []
   (let [fitness-list (re-frame/subscribe [:max-fitness-list])]

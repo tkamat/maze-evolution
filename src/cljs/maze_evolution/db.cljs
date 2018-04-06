@@ -1,15 +1,14 @@
 (ns maze-evolution.db
   (:require [maze-evolution.evolution :as evolution]))
 
-(def initial-population (evolution/create-initial-population)) 
+(def initial-population (evolution/create-initial-population))
 (def default-db
   {:tab :about
    :evolution {:population initial-population
                :generation "Generation 1"
-               :individual "Individual 1"
-               :fitness-list []
-               :max-fitness-list []
-               :generations-to-run ""}
+               :individual "Individual 1"}
+   :quick-evolution {:max-fitness-list []
+                     :generations-to-run ""}
    :maze {:map [[1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
                 [1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1]
                 [1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1]
@@ -22,8 +21,6 @@
                 [1 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1]
                 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1]]
           :current-position [0 1]
-          :remaining-moves (:move-sequence (first initial-population))
-          :unique-id (:id (first initial-population))
           :fitness-map [[99  0 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99]
                         [99  1  0 -1 -2 -3 99 31 32 33 34 35 99 41 42 43 44 45 46 47 99]
                         [99  2 99 99 99 -4 99 30 99 99 99 36 99 40 99 99 99 99 99 48 99]

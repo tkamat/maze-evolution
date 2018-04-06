@@ -5,22 +5,17 @@
  :maze-map
  (fn [db]
    (get-in db [:maze :map])))
+
 (re-frame/reg-sub
  :current-position
  (fn [db]
    (get-in db [:maze :current-position])))
-(re-frame/reg-sub
- :remaining-moves
- (fn [db]
-   (get-in db [:maze :remaining-moves])))
-(re-frame/reg-sub
- :unique-id
- (fn [db]
-   (get-in db [:maze :unique-id])))
+
 (re-frame/reg-sub
  :fitness-map
  (fn [db]
    (get-in db [:maze :fitness-map])))
+
 (re-frame/reg-sub
  :current-fitness
  :<- [:fitness-map]
@@ -29,6 +24,7 @@
    (-> fitness-map
        (nth (first current-position))
        (nth (last current-position)))))
+
 (re-frame/reg-sub
  :population
  (fn [db]
@@ -41,19 +37,18 @@
  :individual
  (fn [db]
    (get-in db [:evolution :individual])))
-(re-frame/reg-sub
- :fitness-list
- (fn [db]
-   (get-in db [:evolution :fitness-list])))
+
 (re-frame/reg-sub
  :tab
  (fn [db]
    (get-in db [:tab])))
-(re-frame/reg-sub
- :generations-to-run
- (fn [db]
-   (get-in db [:evolution :generations-to-run])))
+
 (re-frame/reg-sub
  :max-fitness-list
  (fn [db]
-   (get-in db [:evolution :max-fitness-list])))
+   (get-in db [:quick-evolution :max-fitness-list])))
+
+(re-frame/reg-sub
+ :generations-to-run
+ (fn [db]
+   (get-in db [:quick-evolution :generations-to-run])))

@@ -104,8 +104,6 @@
   [running]
   (go-loop [population @(re-frame/subscribe [:population])]
     (when-let [current-individual (first population)]
-      (re-frame/dispatch [:set-new-move-sequence (:move-sequence current-individual)])
-      (re-frame/dispatch [:set-new-unique-id (:id current-individual)])
       (test-individual (:move-sequence current-individual) (:id current-individual))
       (<! (timeout individual-time))
       (re-frame/dispatch [:next-individual])
@@ -174,9 +172,6 @@
     (re-frame/dispatch [:update-population new-population])
     (re-frame/dispatch [:next-generation])
     (re-frame/dispatch [:reset-individual])
-    (re-frame/dispatch [:set-new-move-sequence
-                        (:move-sequence (first new-population))])
-    (re-frame/dispatch [:set-new-unique-id (:id (first new-population))])
     (re-frame/dispatch [:reset-position [0 1]]))
   (reset! running false))
 
@@ -189,7 +184,17 @@
                    (js/setTimeout #(continuously-evolve running) 500))
                  (+ generation-time 5000)))
 
-(defn headless-evolution-test-and-get-maximum-fitness
+(def run-through-maze
+  "Runs the individual through the maze and returns the final position"
+  (memoize (fn
+             [individual maze]
+             (reduce
+              (fn [position direction]
+                (move-if-eligible direction maze position))
+              [0 1]
+              individual))))
+
+(defn quick-evolve
   "Tests population, sorts by fitness, breeds them, and evolves without the visual
   interface. Takes a maze vector, a map of the possible fitness values, and n,
   the number of generations to evolve. Returns a list of the maximum fitness
@@ -206,11 +211,7 @@
                              (fn combinef [& args] (into [] (apply concat args)))
                              (fn reducef [position-list individual]
                                (conj position-list
-                                     (reduce
-                                      (fn [position direction]
-                                        (move-if-eligible direction maze position))
-                                      [0 1]
-                                      individual))))
+                                     (run-through-maze individual maze))))
                             (reducers/fold
                              10
                              (fn combinef [& args] (into [] (apply concat args)))
