@@ -7,6 +7,4 @@ document.write('<script>if (typeof goog == "undefined") console.warn("ClojureScr
 document.write('<script>goog.require("devtools.preload");</script>');
 document.write('<script>goog.require("re_frisk.preload");</script>');
 document.write('<script>goog.require("process.env");</script>');
-
-document.write("<script>if (typeof goog != \"undefined\") { goog.require(\"figwheel.connect.build_dev\"); }</script>");
 document.write('<script>goog.require("maze_evolution.core");</script>');
