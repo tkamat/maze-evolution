@@ -129,7 +129,8 @@
    [max-fitness-list]])
 (defn about-panel
   []
-  [:div [:p#about "This website attempts to evolve solutions to a simple maze,
+  [:div
+   [:p#about "This website attempts to evolve solutions to a simple maze,
   using genetic algorithms. Originally proposed by John H. Holland, genetic
   algorithms apply the theories of evolution and natural selection to computer
   programs. This simulation (access by clicking the \"simulation\" tab at the
@@ -147,7 +148,6 @@
   can now be run again using the \"Test Population\" button. This evolution
   process continues indefinitely until a solution is found, and it can be run
   automatically by just clicking the \"Continuously Evolve\" button."]
-
    [:p#about "In addition to the main simulation, this website also provides a
    \"Quick Evolution\" option. To access this, click the simulation tab, and
    scroll down to the text box labeled \"# of Generations.\" In this text box,
