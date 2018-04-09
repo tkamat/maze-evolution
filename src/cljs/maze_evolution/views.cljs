@@ -64,15 +64,18 @@
 (defn render-maze-and-ball []
   (conj ((draw-maze)) ((draw-ball))))
 (def running (atom false))
+
 (defn population-test-button []
   (fn []
     [:button {:on-click (fn [] (if (false? @running)
                                 (evolution/test-population running)))}
      "Test Population"]))
+
 (defn new-generation-button []
   (fn []
     [:button {:on-click #(evolution/create-new-generation running)}
      "New Generation"]))
+
 (defn continuously-evolve-button []
   (fn []
     [:button {:on-click #(evolution/continuously-evolve running)}
