@@ -1,6 +1,5 @@
 (ns maze-evolution.evolution
   (:require [cljs.core.async :refer [<! timeout]]
-
             [clojure.core.reducers :as reducers]
             [re-frame.core :as re-frame])
   (:require-macros
@@ -10,7 +9,7 @@
 (def num-of-moves 100)
 (def population-size 64)
 (def move-time 2)
-(def individual-time (+ 100 (* num-of-moves move-time)))
+(def individual-time (+ 300 (* num-of-moves move-time)))
 (def generation-time (* individual-time population-size))
 (def crossing-over-chance (/ 1 33))
 (def mutation-chance (/ 1 num-of-moves))
@@ -97,7 +96,8 @@
       (<! (timeout move-time))
       (recur (rest move-sequence)))
     (re-frame/dispatch [:update-fitness
-                        [id @(re-frame/subscribe [:current-fitness])]])))
+                        [id @(re-frame/subscribe [:current-fitness])]])
+    (re-frame/dispatch [:update-max-position])))
 
 (defn test-population
   "Tests the entire population by looping through and testing each individual"
@@ -108,6 +108,13 @@
       (<! (timeout individual-time))
       (re-frame/dispatch [:next-individual])
       (recur (rest population)))))
+
+(defn calc-fitness
+  "Calculates fitness using the maze position and a fitness map"
+  [fitness-map current-position]
+  (-> fitness-map
+      (nth (first current-position))
+      (nth (last current-position))))
 
 (defn sort-and-prune-population
   "Kills the bottom half of the population and sorts the remaining individuals by
@@ -204,7 +211,7 @@
          population (create-initial-population)
          max-fitness-list []]
     (let [fitness-list (->> population
-                            (reducers/map :move-sequence)
+                            (mapv :move-sequence)
                             (into [])
                             (reducers/fold
                              10

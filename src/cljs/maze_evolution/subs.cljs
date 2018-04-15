@@ -1,5 +1,6 @@
 (ns maze-evolution.subs
-  (:require [re-frame.core :as re-frame]))
+  (:require [maze-evolution.evolution :as evolution]
+            [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub
  :maze-map
@@ -21,9 +22,7 @@
  :<- [:fitness-map]
  :<- [:current-position]
  (fn [[fitness-map current-position] _]
-   (-> fitness-map
-       (nth (first current-position))
-       (nth (last current-position)))))
+   (evolution/calc-fitness fitness-map current-position)))
 
 (re-frame/reg-sub
  :population
@@ -52,3 +51,8 @@
  :generations-to-run
  (fn [db]
    (get-in db [:quick-evolution :generations-to-run])))
+
+(re-frame/reg-sub
+ :max-position
+ (fn [db]
+   (get-in db [:maze :max-position])))

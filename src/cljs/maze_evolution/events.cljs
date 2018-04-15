@@ -53,6 +53,7 @@
                      js/parseInt
                      inc
                      (str "Generation "))))))
+
 (re-frame/reg-event-db
  :next-individual
  (fn [db _]
@@ -72,12 +73,24 @@
               (fn [old-individual]
                 "Individual 1"))))
 
+
 (re-frame/reg-event-db
  :change-tab
  (fn [db [_ new-tab]]
    (update-in db [:tab]
               (fn [old-tab]
                 new-tab))))
+
+(re-frame/reg-event-db
+ :update-max-position
+ (fn [db _]
+   (let [fitness-map (get-in db [:maze :fitness-map])
+         current-position (get-in db [:maze :current-position])
+         max-position (get-in db [:maze :max-position])]
+     (if (> (evolution/calc-fitness fitness-map current-position)
+            (evolution/calc-fitness fitness-map max-position))
+       (assoc-in db [:maze :max-position] current-position)
+       db))))
 
 (re-frame/reg-event-db
  :set-generations-to-run
@@ -92,3 +105,4 @@
    (update-in db [:quick-evolution :max-fitness-list]
               (fn [old-list]
                 new-max-fitness-list))))
+

@@ -1,14 +1,15 @@
 (ns ^:figwheel-always maze-evolution.views
-  (:require [reagent.core :as reagent]
-            [re-frame.core :as re-frame]
-            [clojure.string :as string]
-            [cljs.js]
+  (:require [cljs.core.async :refer [<! timeout]]
+            cljs.js
             [cljs.pprint :refer [pprint]]
-            [cljs.core.async :refer [<! timeout]]
+            [clojure.string :as string]
+            [keybind.core :as key]
             [maze-evolution.events :as events]
+            [maze-evolution.evolution :as evolution]
             [maze-evolution.subs :as subs]
-            [maze-evolution.evolution :as evolution])
-  (:use-macros [cljs.core.async.macros :only [go]]))
+            [re-frame.core :as re-frame]
+            [reagent.core :as reagent])
+  (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn title
   []
@@ -48,21 +49,22 @@
             vec)])))
 
 (defn draw-ball
-  []
-  (let [ball-position (re-frame/subscribe [:current-position])]
-    (fn []
-      [:g [:svg [:circle {:style {:fill "coral"} :r 12 :id "ball"
-                          :cx (->> @ball-position
-                                   last
-                                   (* 30)
-                                   (+ 15))
-                          :cy (->> @ball-position
-                                   first
-                                   (* 30)
-                                   (+ 15))}]]])))
+  [position color]
+  [:g [:svg [:circle {:style {:fill color} :r 12 :id "ball"
+                      :cx (->> position
+                               last
+                               (* 30)
+                               (+ 15))
+                      :cy (->> position
+                               first
+                               (* 30)
+                               (+ 15))}]]])
 
 (defn render-maze-and-ball []
-  (conj ((draw-maze)) ((draw-ball))))
+  (let [current-position @(re-frame/subscribe [:current-position])
+        max-position @(re-frame/subscribe [:max-position])]
+    (conj ((draw-maze)) (draw-ball max-position "grey") (draw-ball current-position "coral"))))
+
 (def running (atom false))
 
 (defn population-test-button []
@@ -106,7 +108,9 @@
 (defn max-fitness-list []
   (let [fitness-list (re-frame/subscribe [:max-fitness-list])]
     (fn []
-      [:p#fitness-list (string/join ", " @fitness-list)])))
+      [:div
+       [:p#fitness-list
+        (string/join ", " @fitness-list)]])))
 
 (defn button-group []
   (fn []
@@ -122,6 +126,7 @@
           [:hr {:style {:margin-left "0%"}}]
           (= @current-tab :simulation)
           [:hr {:style {:margin-left "50%"}}])))
+
 (defn simulation-panel
   []
   [:div
@@ -190,3 +195,7 @@
    [tabs]
    [current-panel]
    [github-badge]])
+
+;; keybindings
+(key/bind! "right" ::switch-tab-right #(re-frame/dispatch [:change-tab :simulation]))
+(key/bind! "left" ::switch-tab-right #(re-frame/dispatch [:change-tab :about]))
