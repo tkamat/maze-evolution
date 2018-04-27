@@ -65,22 +65,19 @@
         max-position @(re-frame/subscribe [:max-position])]
     (conj ((draw-maze)) (draw-ball max-position "grey") (draw-ball current-position "coral"))))
 
-(def running (atom false))
-
 (defn population-test-button []
   (fn []
-    [:button {:on-click (fn [] (if (false? @running)
-                                (evolution/test-population running)))}
+    [:button {:on-click #(evolution/test-population)}
      "Test Population"]))
 
 (defn new-generation-button []
   (fn []
-    [:button {:on-click #(evolution/create-new-generation running)}
+    [:button {:on-click #(evolution/create-new-generation)}
      "New Generation"]))
 
 (defn continuously-evolve-button []
   (fn []
-    [:button {:on-click #(evolution/continuously-evolve running)}
+    [:button {:on-click #(evolution/continuously-evolve)}
      "Continuously evolve"]))
 
 (defn quick-evolve-button []

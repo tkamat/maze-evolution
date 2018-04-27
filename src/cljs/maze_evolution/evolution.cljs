@@ -7,7 +7,7 @@
    [re-frame.core :as re-frame]))
 
 (def num-of-moves 100)
-(def population-size 64)
+(def population-size 100)
 (def move-time 2)
 (def individual-time (+ 300 (* num-of-moves move-time)))
 (def generation-time (* individual-time population-size))
@@ -75,8 +75,7 @@
   "Creates a sequence of random moves representing an initial individual"
   []
   (for [_ (range 0 num-of-moves)]
-    (random-move)
-    ))
+    (random-move)))
 
 (defn create-initial-population
   "Creates a sequence of randomly generated individuals representing the original
@@ -101,7 +100,7 @@
 
 (defn test-population
   "Tests the entire population by looping through and testing each individual"
-  [running]
+  []
   (go-loop [population @(re-frame/subscribe [:population])]
     (when-let [current-individual (first population)]
       (test-individual (:move-sequence current-individual) (:id current-individual))
@@ -112,15 +111,30 @@
 (defn calc-fitness
   "Calculates fitness using the maze position and a fitness map"
   [fitness-map current-position]
-  (-> fitness-map
-      (nth (first current-position))
-      (nth (last current-position))))
+  (get-in fitness-map current-position))
 
-(defn sort-and-prune-population
+#_(defn select-population
   "Kills the bottom half of the population and sorts the remaining individuals by
   fitness"
   [population]
   (take (/ population-size 2) (reverse (sort-by #(:fitness %) population))))
+
+(defn select-fittest
+  "Selects the fittest individual from the input pair"
+  [pair]
+  (if (> (:fitness (first pair))
+         (:fitness (last pair)))
+    (first pair)
+    (last pair)))
+
+(defn select-population
+  "Kills the bottom half of the population and sorts the remaining individuals by
+  fitness"
+  [population]
+  (->> population
+       shuffle
+       (partition 2)
+       (map select-fittest)))
 
 (defn cross-over
   "Combines two parent sequences by selecting a random point, splicing each parent
@@ -164,7 +178,7 @@
 (defn pair-and-reproduce
   "Pairs all members of the population and run have-child twice"
   [population]
-  (let [parents (sort-and-prune-population population)]
+  (let [parents (select-population population)]
     (reduce
      (fn [new-generation breeding-pair]
        (concat new-generation breeding-pair (map have-child (repeat 2 breeding-pair))))
@@ -173,22 +187,20 @@
 
 (defn create-new-generation
   "Creates a new population and updates state"
-  [running]
-  (reset! running true)
+  []
   (let [new-population (pair-and-reproduce @(re-frame/subscribe [:population]))]
     (re-frame/dispatch [:update-population new-population])
     (re-frame/dispatch [:next-generation])
     (re-frame/dispatch [:reset-individual])
-    (re-frame/dispatch [:reset-position [0 1]]))
-  (reset! running false))
+    (re-frame/dispatch [:reset-position [0 1]])))
 
 (defn continuously-evolve
   "Tests population in a loop and creates new generations continuously"
-  [running]
-  (test-population running)
+  []
+  (test-population)
   (js/setTimeout (fn []
-                   (create-new-generation running)
-                   (js/setTimeout #(continuously-evolve running) 500))
+                   (create-new-generation)
+                   (js/setTimeout #(continuously-evolve) 500))
                  (+ generation-time 5000)))
 
 (def run-through-maze
