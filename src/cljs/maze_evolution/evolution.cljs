@@ -8,11 +8,11 @@
 
 (def num-of-moves 100)
 (def population-size 100)
-(def move-time 2)
+(def move-time 3)
 (def individual-time (+ 300 (* num-of-moves move-time)))
-(def generation-time (* individual-time population-size))
-(def crossing-over-chance (/ 1 33))
-(def mutation-chance (/ 1 num-of-moves))
+(def generation-time (+ 200 (* individual-time population-size)))
+(def crossing-over-chance (/ 1 50))
+(def mutation-chance (/ 1 33))
 
 (defn random-move
   "Generates a random move between :N, :S, :E, and :W"
@@ -112,12 +112,6 @@
   "Calculates fitness using the maze position and a fitness map"
   [fitness-map current-position]
   (get-in fitness-map current-position))
-
-#_(defn select-population
-  "Kills the bottom half of the population and sorts the remaining individuals by
-  fitness"
-  [population]
-  (take (/ population-size 2) (reverse (sort-by #(:fitness %) population))))
 
 (defn select-fittest
   "Selects the fittest individual from the input pair"
@@ -248,3 +242,10 @@
                new-population
                (conj  max-fitness-list (apply max fitness-list)))))))
 
+(defn factorial
+  "Computes the factorial of the given number"
+  [n]
+  (if (= n 1)
+    1
+    (* n (factorial (dec n))))
+  )
