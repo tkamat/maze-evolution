@@ -80,6 +80,7 @@
     [:button {:on-click #(evolution/continuously-evolve)}
      "Continuously evolve"]))
 
+
 (defn quick-evolve-button []
   (fn []
     [:button#quick-evolve {:on-click #(re-frame/dispatch [:set-max-fitness-list

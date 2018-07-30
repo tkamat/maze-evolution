@@ -17,12 +17,12 @@
 
   :profiles
   {:dev
-   {:dependencies [[figwheel-sidecar "0.5.14"]
+   {:dependencies [[figwheel-sidecar "0.5.16"]
                    [binaryage/devtools "0.9.4"]
-                   [org.clojure/tools.nrepl "0.2.10"]
-                   [com.cemerick/piggieback "0.2.2"]
+                   [cider/piggieback "0.3.6"]
+                   [org.clojure/tools.nrepl "0.2.13"]
                    [re-frisk "0.5.3"]]
-    :plugins      [[lein-figwheel "0.5.14"]]
+    :plugins      [[lein-figwheel "0.5.16"]]
     :cljsbuild {:builds [{:id "dev"
                           :compiler {
                                      :optimizations        :none
@@ -35,7 +35,8 @@
                                      :external-config      {:devtools/config {:features-to-install :all}}
                                      :source-map-timestamp true
                                      :main                 maze-evolution.core}
-                          :figwheel {:on-jsload "maze-evolution.core/main"}
+                          :figwheel {:on-jsload "maze-evolution.core/main"
+                                     :websocket-host :js-client-host}
                           :source-paths ["src/cljs" "src/clj"]}
                          {:id "min"
                           :compiler {:main maze-evolution.core
@@ -46,8 +47,7 @@
                                      :closure-defines {goog.DEBUG false}}
                           :source-paths ["src/cljs" "src/clj"]}]}}}
 
-  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+  :repl-options {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
   :figwheel {:server-port 3449
              :repl        true
-             :css-dirs ["resources/public/css"]}
-  )
+             :css-dirs ["resources/public/css"]})

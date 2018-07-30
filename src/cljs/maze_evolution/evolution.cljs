@@ -7,12 +7,12 @@
    [re-frame.core :as re-frame]))
 
 (def num-of-moves 100)
-(def population-size 100)
-(def move-time 3)
-(def individual-time (+ 300 (* num-of-moves move-time)))
-(def generation-time (+ 200 (* individual-time population-size)))
-(def crossing-over-chance (/ 1 50))
-(def mutation-chance (/ 1 33))
+(def population-size 250)
+(def move-time 2)
+(def individual-time (+ 200 (* num-of-moves move-time)))
+(def generation-time (+ 2000 (* individual-time population-size)))
+(def crossing-over-chance (/ 1 33))
+(def mutation-chance (/ 2 num-of-moves))
 
 (defn random-move
   "Generates a random move between :N, :S, :E, and :W"

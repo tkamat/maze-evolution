@@ -4,3 +4,4 @@ target/
 figwheel_server.log
 /.nrepl-port
 /resources/public/js/compiled/out/ 
+/.rebel_readline_history
