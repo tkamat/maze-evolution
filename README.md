@@ -1,6 +1,6 @@
 # maze-evolution
 
-A [re-frame](https://github.com/Day8/re-frame) that runs balls through a virtual
+A [re-frame] application (https://github.com/Day8/re-frame) that runs balls through a virtual
 maze, and evolves them using evolution
 
 ## Development Mode
